@@ -418,7 +418,10 @@ end
 
     edit do
       field :name
-      field :parent_id do
+      field :parent_id, :enum do
+        enum_method do
+          :parent_id_enum
+        end
       end
       field :description
     end
@@ -431,7 +434,10 @@ end
 
     edit do
       field :name
-      field :parent_id do
+      field :parent_id, :enum do
+        enum_method do
+          :parent_id_enum
+        end
       end
       field :description
     end
