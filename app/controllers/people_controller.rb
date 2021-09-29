@@ -241,6 +241,6 @@ class PeopleController < ApplicationController
     end
 
     def person_params
-      params.require(:person).permit(:email, :password, :password_confirmation, :name, :business_name, :legal_business_name, :business_type_id, :title, :activity_status_id, :plan_type_id, :support_contact_id, :description, :connection_notifications, :message_notifications, :category_ids, :address_ids, :neighborhood_ids, :zipcode, :phone, :phoneprivacy, :accept_agreement, :language, :time_zone, :date_style, :openid_identifier, :sponsor, :broadcast_emails, :web_site_url, :org, :posts_per_page, :deactivated)
+      params.require(:person).permit(:email, :password, :password_confirmation, :name, :business_name, :legal_business_name, :business_type_id, :title, :activity_status_id, :plan_type_id, :support_contact_id, :description, :connection_notifications, :message_notifications, {:category_ids => [], :neighborhood_ids => []}, :zipcode, :phone, :phoneprivacy, :accept_agreement, :language, :time_zone, :date_style, :openid_identifier, :sponsor, :broadcast_emails, :web_site_url, :org, :posts_per_page, :deactivated)
     end
 end

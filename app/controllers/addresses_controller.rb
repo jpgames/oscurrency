@@ -3,19 +3,19 @@ class AddressesController < ApplicationController
   before_filter :correct_user_required
 
   def index
-    @addresses = current_person.addresses.find(:all)
+    @addresses = current_person.addresses.all
     respond_to do |format|
       format.xml { render :xml => @addresses }
     end
   end
 
   def new
-    @states = State.find(:all, :order => "name").collect {|s| [s.name, s.id]}
+    @states = State.all.order("name").collect {|s| [s.name, s.id]}
     @address = Address.new
   end
 
   def edit
-    @states = State.find(:all, :order => "name").collect {|s| [s.name, s.id]}
+    @states = State.all.order("name").collect {|s| [s.name, s.id]}
     @address = current_person.addresses.find(params[:id])
   end
 
@@ -25,11 +25,11 @@ class AddressesController < ApplicationController
       if current_person.addresses << @address
         redirect_to person_url(current_person)
       else
-        @states = State.find(:all, :order => "name").collect {|s| [s.name, s.id]}
+        @states = State.all.order("name").collect {|s| [s.name, s.id]}
         render :action => :new
       end
     rescue
-      @states = State.find(:all, :order => "name").collect {|s| [s.name, s.id]}
+      @states = State.all.order("name").collect {|s| [s.name, s.id]}
       flash[:error] = t("error_geocoding_failed")
       render :action => :new
     end
@@ -41,11 +41,11 @@ class AddressesController < ApplicationController
       if @address.update_attributes(address_params)
         redirect_to person_url(current_person)
       else
-        @states = State.find(:all, :order => "name").collect {|s| [s.name, s.id]}
+        @states = State.all.order("name").collect {|s| [s.name, s.id]}
         render :action => :edit
       end
     rescue
-      @states = State.find(:all, :order => "name").collect {|s| [s.name, s.id]}
+      @states = State.all.order("name").collect {|s| [s.name, s.id]}
       flash[:error] = t("error_geocoding_failed")
       render :action => :edit
     end
