@@ -6,6 +6,7 @@ class MembershipsController < ApplicationController
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = exception.message
     respond_to do |format|
+      format.js {}
       format.html {redirect_to @membership.group}
     end
   end
@@ -40,7 +41,7 @@ class MembershipsController < ApplicationController
     @offers = @person.offers.active
     @reqs = @person.reqs.all_active
     respond_to do |format|
-      if @group.authorized_to_view_members?(current_person)
+      if @group.authorized_to_view_members?(current_person) && (@person.email_verified? || !global_prefs.email_verifications?)
         format.js {render :action => 'reject' if not request.xhr?}
         format.html { redirect_to('/groups/' + @membership.group.id.to_s + '#memberships/' + @membership.id.to_s)}
       else
