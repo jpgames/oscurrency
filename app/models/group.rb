@@ -13,8 +13,8 @@ class Group < ActiveRecord::Base
   has_many :exchange_and_fees, -> { order("created_at DESC") }
   has_many :memberships, :dependent => :destroy
   has_many :accounts, :dependent => :destroy
-  has_many :people, -> { where(status: 0).order("name DESC") }, :through => :memberships
-  has_many :pending_request, -> { where(status: 2).order("name DESC") }, :through => :memberships, :source => "person"
+  has_many :people, -> { where('memberships.status' => 0).order("name DESC") }, :through => :memberships
+  has_many :pending_request, -> { where('memberships.status' => 2).order("name DESC") }, :through => :memberships, :source => :person
   
   belongs_to :owner, :class_name => "Person", :foreign_key => "person_id"
   

@@ -4,7 +4,7 @@ class Membership < ActiveRecord::Base
   extend ActivityLogger
   extend PreferencesHelper
 
-  scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
+  scope :with_role, lambda { |role| where("roles_mask & #{2**ROLES.index(role.to_s)} > 0") }
   scope :active, -> { includes(:person).where('people.deactivated' => false) }
   scope :verified, -> { includes(:person).where('people.email_verified' => true) if global_prefs.email_verifications? }
   scope :accepted, -> { where(status: Membership::ACCEPTED) }
