@@ -66,9 +66,14 @@
           </div>
         </div>
     </div>
-    <%= f.control_group :accept_agreement do %>
-      <%= f.check_box :accept_agreement, label: member_agreement_label.html_safe  %> 
-    <% end %>
+    <div class="control-group">
+      <div class="controls">
+        <label class="checkbox" for="person_accept_agreement">
+          <input name="person[accept_agreement]" type="hidden" value="0" />
+          <input type="checkbox" value="1" name="person[accept_agreement]" id="person_accept_agreement" /> <%= t('people.new.i_accept_the') %> <a target="_blank" class="small" href="/agreement"><%= t('people.new.member_agreeement') %></a>
+        </label>
+      </div>
+    </div>
 
     <%= f.actions do %>
       <%= f.primary t('people.new.signup_button') %>
