@@ -2,6 +2,8 @@
 
   <%= bootstrap_form_for [current_person, @address] do |form| %>
     <%= render :partial => 'form', :object => form %>
-    <%= form.primary t('button_create')%>
+    <%= form.actions do %>
+      <%= form.primary t('button_create')%>
+    <% end %>
   <% end %>
 

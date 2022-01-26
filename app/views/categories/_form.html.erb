@@ -6,5 +6,7 @@
       <%= render(:partial => "select_categories") %>
     </div>
   </div>
-  <%= f.primary t('button_create') %>
+  <%= f.actions do %>
+    <%= f.primary t('button_create') %>
+  <% end %>
 <% end %>

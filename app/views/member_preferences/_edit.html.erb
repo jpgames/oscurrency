@@ -8,7 +8,9 @@
     <div style='padding-left:10px;'>
       <%= f.check_box :req_notifications, label: t('people.edit.requests_in_my_service_categories') %>
       <%= f.check_box :forum_notifications, label: t('people.edit.forum_posts') %>
-      <%= f.primary "Update" %><%= waiting_image %>
+      <%= f.actions do %>
+        <%= f.primary "Update" %><%= waiting_image %>
+      <% end %>
     </div>
 <% end %>
 </div>

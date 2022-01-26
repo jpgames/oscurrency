@@ -60,7 +60,7 @@ gem "ar_after_transaction"
 gem 'valid_email', :require => 'valid_email/email_validator'
 gem "calendar_helper"
 #gem "gibbon", :git => "git://github.com/amro/gibbon.git"
-gem "bootstrap_form", "2.1.1"
+gem "bootstrap_form", git: 'https://github.com/herestomwiththeweather/bootstrap_form.git', branch: 'v1_0_patch_for_rails4_2'
 gem 'test-unit'
 
 group :development, :test do

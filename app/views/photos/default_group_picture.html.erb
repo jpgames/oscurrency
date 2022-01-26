@@ -6,6 +6,8 @@
 
     <input type='hidden' name='id' value="<%= @photo.id %>" />
     <%= f.file_field :picture, label: t('groups.new_photo.upload_a_photo') %>
-    <%= f.primary "Upload" %>
-    <%= f.submit "Cancel", :id => "cancel", :class => "btn" %>
+    <%= f.actions do %>
+      <%= f.primary "Upload" %>
+      <%= f.submit "Cancel", :id => "cancel", :class => "btn" %>
+    <% end %>
 <% end -%>

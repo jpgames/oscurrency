@@ -22,5 +22,7 @@
       <%= render :partial => "shared/select_neighborhoods", :locals => { :model_name => 'offer' } %>
     </div>
   </div>
-  <%= f.primary submit_text %><%= waiting_image %>
+  <%= f.actions do %>
+    <%= f.primary submit_text %><%= waiting_image %>
+  <% end %>
 </div>
