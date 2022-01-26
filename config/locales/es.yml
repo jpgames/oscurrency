@@ -22,6 +22,7 @@ es:
   estimate: "Estimación"
   title: "Título"
   bid: "oferta"
+  respond_by: "Responder por fecha"
   due_date: "Fecha de vencimiento"
   expiration_date: "Fecha de caducidad"
   description: "Descripción"

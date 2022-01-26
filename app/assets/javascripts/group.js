@@ -218,7 +218,7 @@ $(function() {
       });
     });
 
-  $("input#req_due_date").live('focus', function() {
+  $("input#req_due_date, input#req_respond_by_date").live('focus', function() {
     $(this).datepicker({
       buttonImage: "/images/calendar.gif",
       buttonImageOnly: true,

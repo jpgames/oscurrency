@@ -11,7 +11,7 @@
     <span class='btn'>#<%= @req.id %></span><%= " #{@req.name}" %><%= waiting_image %>
   </h2>
   <p>
-    <strong><%= t('reqs.partial.due') %></strong>: <%= relative_time_ago_in_words(@req.due_date) %>
+    <strong><%= t('reqs.partial.due') %></strong>: <%= relative_time_ago_in_words(@req.due_date) %><%= respond_by_date_expression(@req) %>
   </p>
 
   <!-- Fluid container - for two rows -->

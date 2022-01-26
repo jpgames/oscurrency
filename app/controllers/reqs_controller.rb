@@ -158,6 +158,6 @@ class ReqsController < ApplicationController
 
   private
     def req_params
-      params.require(:req).permit(:name, :description, :estimated_hours, :due_date, :biddable, :notifications, :active, :public_bid, {:category_ids => [], :neighborhood_ids => [], :photos_attributes => [:picture]})
+      params.require(:req).permit(:name, :description, :estimated_hours, :due_date, :respond_by_date, :biddable, :notifications, :active, :public_bid, {:category_ids => [], :neighborhood_ids => [], :photos_attributes => [:picture]})
     end
 end

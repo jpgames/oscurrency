@@ -1,4 +1,8 @@
 module ReqsHelper
+  def respond_by_date_expression(req)
+    req.respond_by_date? ? " (Respond with" + relative_time_ago_in_words(req.respond_by_date) + ")" : ""
+  end
+
   def active_reqs_class
     if params[:scope]
       "toggle-active-reqs"

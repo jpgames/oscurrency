@@ -22,6 +22,7 @@ fr:
   estimate: "Estimer"
   title: "Titre"
   bid: "Enchère"
+  respond_by: "Répondre par date"
   due_date: "Date d'échéance"          
   expiration_date: "Date d’expiration"
   description: "Description"

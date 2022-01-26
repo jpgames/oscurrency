@@ -22,6 +22,7 @@ gr:
   estimate: "Εκτίμηση"
   title: "Τίτλος"
   bid: "δήλωση"
+  respond_by: "απαντήστε από"
   due_date: "Καταληκτική Ημερομηνία"
   expiration_date: "Ημερομηνία Λήξης"
   description: "Περιγραφή"

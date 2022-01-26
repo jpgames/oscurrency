@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141201023842) do
+ActiveRecord::Schema.define(version: 20220126200610) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -593,6 +593,7 @@ ActiveRecord::Schema.define(:version => 20141201023842) do
     t.integer  "group_id"
     t.boolean  "active",                                        :default => false
     t.boolean  "public_bid",                                    :default => false
+    t.datetime "respond_by_date"
   end
 
   create_table "states", :force => true do |t|

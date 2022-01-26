@@ -22,6 +22,7 @@ en:
   estimate: "Estimate"
   title: "Title"
   bid: "bid"
+  respond_by: "Respond by date"
   due_date: "Due date"
   expiration_date: "Expiration Date"
   description: "Description"
