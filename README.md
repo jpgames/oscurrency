@@ -1,28 +1,25 @@
 ### Quick Facts
 - ruby 2.4.10
-- rails 4.2.8
+- rails 4.2.11.3
 - heroku deployment
-- [Issues](https://github.com/oscurrency/oscurrency/issues)
-- [Demo site](http://demo.opensourcecurrency.org)
-- [Contributors](https://github.com/oscurrency/oscurrency/graphs/contributors)
+- [Issues](https://github.com/bace/oscurrency/issues)
+- [Contributors](https://github.com/bace/oscurrency/graphs/contributors)
 
 ### Features
-- [OpenTransact](http://opentransact.org) compatibility
+- [OpenTransact](https://opentransact.org) compatibility
 - Mutual Credit Accounting
 - Internal Messaging System
 - Multiple currency support
 - Internationalization includes Spanish, Greek, French
 - Advanced Search Filters
 - Email Notification for matched requests
-- [Android native app w/OpenTransact](https://play.google.com/store/apps/details?id=org.opensourcecurrency.hack)
-- OpenID compatibility
 - [Easy Heroku installation and update](https://github.com/oscurrency/oscurrency/wiki/Heroku-Deployment-Guide)
 
 ### Install
 
 Our public Git repository is hosted on GitHub and can be viewed at
 
-  https://github.com/oscurrency/oscurrency
+  https://github.com/bace/oscurrency
 
 You can install a new deployment on Heroku with the command:
 
@@ -62,11 +59,9 @@ In addition to configuration through the web admin interface, outgoing email con
 
 ### How to get help
 - [Google Group](http://groups.google.com/group/opensourcecurrency)
-- [File an issue](https://github.com/oscurrency/oscurrency/issues)
+- [File an issue](https://github.com/bace/oscurrency/issues)
 
 ### How to start for Developers
-[Easy Developer Environment with Nitrous.IO](https://github.com/oscurrency/oscurrency/wiki/Easy-Developer-Environment-with-Nitrous.IO)
-
 [Setting up development environment on Ubuntu](https://github.com/oscurrency/oscurrency/wiki/Setting-up-development-environment-on-ubuntu)
 
 ### APIs

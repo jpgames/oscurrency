@@ -144,11 +144,15 @@ class PersonMailer < ActionMailer::Base
     @req = req
     mail(:to => recipient.email,
          :from => "Request notification <request@#{domain}>",
-         :subject => formatted_subject("Request: #{req.name}")
+         :subject => formatted_subject("Request: #{req.name}#{respond_by_date_expression(req.respond_by_date)}")
         )
   end
   
   private
+
+  def respond_by_date_expression(respond_by_date)
+    respond_by_date.present? ? " (Respond by #{respond_by_date.strftime('%m/%d/%y')})" : ""
+  end
   
   def recipients_of_registration_notifications
     recipients = []
@@ -160,7 +164,7 @@ class PersonMailer < ActionMailer::Base
 
   # Prepend the application name to subjects if present in preferences.
   def formatted_subject(text)
-    name = PersonMailer.global_prefs.app_name
+    name = PersonMailer.global_prefs.app_name_notifications
     label = name.blank? ? "" : "[#{name}] "
     "#{label}#{text}"
   end

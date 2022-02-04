@@ -27,7 +27,7 @@ private
 
     # Prepend the application name to subjects if present in preferences.
     def formatted_subject(text)
-      name = PersonMailer.global_prefs.app_name
+      name = PersonMailer.global_prefs.app_name_notifications
       label = name.blank? ? "" : "[#{name}] "
       "#{label}#{text}"
     end

@@ -265,6 +265,7 @@ end
         help "*** Some preferences require server restart to take effect after change ***"
       end
       field :app_name
+      field :app_name_notifications
       field :server_name
       field :admin_contact_id do
       end
