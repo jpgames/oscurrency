@@ -136,6 +136,7 @@ class Person < ActiveRecord::Base
   after_create :create_address
   after_create :join_mandatory_groups
   before_save :update_group_letter
+  before_validation :check_for_bot
   before_validation :prepare_email, :handle_nil_description
   #after_create :connect_to_admin
   before_update :deactivation_notification
@@ -459,6 +460,13 @@ class Person < ActiveRecord::Base
   end
 
   ## Callbacks
+
+  # bots are populating openid_identifier even though it is not visibly present. create an unrelated validation error in this case.
+  def check_for_bot
+    if new_record?
+      self.name = '' if openid_identifier.present?
+    end
+  end
 
   # Prepare email for database insertion.
   def prepare_email
