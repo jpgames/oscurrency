@@ -525,3 +525,9 @@ input#person_openid_identifier, input#person_session_openid_identifier {
 .talkable-link-div {
     padding-bottom: 10px;
 }
+
+.search_input {
+  padding-left: 35px !important;
+  background-image: url(/assets/32px-Magnifying-glass.svg.png);
+  background-repeat: no-repeat;
+}
