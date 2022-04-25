@@ -260,6 +260,9 @@ form#blogpost #post_title, form#blogpost #post_body {
   width: 312px;
 }
 
+.nav-tabs a {
+  background-color: #eee;
+}
 
 /* Messages */
 
