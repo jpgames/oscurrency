@@ -1,6 +1,14 @@
 module ReqsHelper
   def respond_by_date_expression(req)
-    req.respond_by_date? ? " (Respond with" + relative_time_ago_in_words(req.respond_by_date) + ")" : ""
+    if req.respond_by_date?
+      if req.respond_by_date > Time.now
+        " (Respond with#{t('in')} #{time_ago_in_words(req.respond_by_date)})"
+      else
+        " (Respond by date passed #{relative_time_ago_in_words(req.respond_by_date)})"
+      end
+    else
+      ""
+    end
   end
 
   def active_reqs_class
