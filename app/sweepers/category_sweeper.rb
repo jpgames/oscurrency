@@ -17,6 +17,6 @@ class CategorySweeper < ActionController::Caching::Sweeper
   
   def clear_cache
     #logger.info "cache sweep" # Causes heroku exception
-    expire_fragment('skillbank')
+    ActionController::Base.new.expire_fragment('skillbank', options = nil)
   end
 end
