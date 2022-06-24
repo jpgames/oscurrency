@@ -58,7 +58,7 @@ class ExchangesController < ApplicationController
   # this method expects that the form is either referencing an existing offer or accepting a name field for a new req to be created 
   #
   def create
-    @exchange = ExchangeAndFee.new(exchange_params)
+    @exchange = params[:offer].present? ? ExchangeAndFee.new : ExchangeAndFee.new(exchange_params)
     @exchange.worker = @person
     unless @exchange.customer.present?
       @exchange.customer = current_person
