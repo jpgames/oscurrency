@@ -207,9 +207,12 @@ gr:
       share_address: "Share address?"
 
   bids:
+    index:
+      nobids: "No bids (yet!)"
     bid:
       expires: "λήγει"
       accepted: "Αποδεκτή"
+      submitted: "Υποβλήθηκε "
       submitted_by: "Υποβλήθηκε από"
 
   categories:

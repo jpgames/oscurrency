@@ -23,6 +23,7 @@ class GroupsController < ApplicationController
       end
       @your_offers = current_person.offers_for_group(@group)
       @your_reqs = current_person.reqs_for_group(@group)
+      @your_bids = current_person.bids_for_group(@group)
       @invitations = current_person.invitations.where(accepted_at: nil)
     end
     respond_to do |format|

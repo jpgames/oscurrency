@@ -312,6 +312,10 @@ class Person < ActiveRecord::Base
     offers.where(group_id: group.id).order('created_at DESC')
   end
 
+  def bids_for_group(group)
+    bids.where(group_id: group.id).order('created_at DESC')
+  end
+
   def current_and_active_bids
     bids.where("state != ? AND NOT (state = ? AND expiration_date < ?)", 'approved', 'offered', DateTime.now).order('created_at DESC')
   end

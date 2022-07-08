@@ -149,9 +149,12 @@ fr:
       share_address: "Partager adresse?"
 
   bids:
+    index:
+      nobids: "Pas encore d'enchères"
     bid:
       expires: "expires"                              
       accepted: "Accepté"
+      submitted: "proposé "
       submitted_by: "proposé par"
 
   categories:

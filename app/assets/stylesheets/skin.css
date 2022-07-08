@@ -16,6 +16,10 @@ pre.debug_dump pre {
   border: none;
 }
 
+.bid-action {
+  margin-top: 6px;
+}
+
 .default-group-link {
   float: left;
   margin-top: 3px;

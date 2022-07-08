@@ -94,9 +94,12 @@ en:
       share_address: "Share address?"
 
   bids:
+    index:
+      nobids: "No bids (yet!)"
     bid:
       expires: "expires"    
       accepted: "Accepted"
+      submitted: "Submitted "
       submitted_by: "Submitted by"
 
   categories:
@@ -227,7 +230,7 @@ en:
       unread_messages: "You have unread messages in your mailbox."
       see_your_messages: "Click here to see your messages"
     _dashboard:
-      bids: "Your Active Bids/Work"
+      bids: "Your Bids"
       no_active_bids: "No active bids"
       offers: "Your Offers"
       no_active_offers: "No offers"

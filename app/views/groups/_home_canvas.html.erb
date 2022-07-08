@@ -18,6 +18,14 @@
           <% end %>
         <%- end -%>
       <%- end -%>
+      <h2><%= t('home._dashboard.bids') %></h2>
+      <%- if @your_bids.length > 0 %>
+        <ul class="list activity full">
+          <%= render :partial => '/bids/bid', :collection => @your_bids, :locals => {:dashboard => true} %>
+        </ul>
+      <%- else -%>
+        <h3><%= t('bids.index.nobids') %></h3>
+      <%- end %>
       <h2><%= t('home._dashboard.offers') %></h2>
       <%- if @your_offers.length > 0 %>
         <ul class="list activity full">

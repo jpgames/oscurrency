@@ -94,9 +94,12 @@ es:
       share_address: "Share address?"
 
   bids:
+    index:
+      nobids: "No hay ofertas todavía"
     bid:
       expires: "caduca"    
       accepted: "aceptado"
+      submitted: "Enviado "
       submitted_by: "Enviado por"
 
   categories:
