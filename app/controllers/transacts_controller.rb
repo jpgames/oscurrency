@@ -177,6 +177,10 @@ class TransactsController < ApplicationController
 
   private
 
+  def oauth?
+    false
+  end
+
   def opentransact_find_worker(payee)
     # assume identifier is either an email address or a url
     if payee.split('@').size == 2
