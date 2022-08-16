@@ -583,6 +583,7 @@ gr:
       to:
         placeholder: "Πληκτρολογήστε το όνομα του παραλήπτη ..."
       new_message: "Σύνθεση μηνύματος"
+      return_to_dashboard: "Return To Dashboard"
     show:
       subject: "Θέμα"
       sent: "Στάλθηκε"

@@ -470,6 +470,7 @@ en:
       to:
         placeholder: "Type recipient's name..."
       new_message: "Compose New Message"
+      return_to_dashboard: "Return To Dashboard"
     show:
       subject: "Subject"
       sent: "Sent"

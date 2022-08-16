@@ -17,4 +17,5 @@
 </div>
 <div class="span3">
   <%= render :partial => 'shared/add_button', :locals => { :button_text => t('messages.new.new_message'), :new_resource_path => new_message_path } %>
+  <%= render :partial => 'shared/add_button', :locals => { :button_text => t('messages.new.return_to_dashboard'), :new_resource_path => group_path(current_person.default_group) } %>
 </div>

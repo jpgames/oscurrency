@@ -524,6 +524,7 @@ fr:
       to:
         placeholder: "Type recipient's name..."
       new_message: "Compose New Message"
+      return_to_dashboard: "Retour au tableau de bord"
     show:
       subject: "Subject"
       sent: "Sent"

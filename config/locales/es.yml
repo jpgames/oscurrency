@@ -457,6 +457,7 @@ es:
       to:
         placeholder: "Escribir el nombre del destinatario..."
       new_message: "Escribir nuevo mensaje"
+      return_to_dashboard: "Return To Dashboard"
     show:
       subject: "Asunto"
       sent: "Enviado"
