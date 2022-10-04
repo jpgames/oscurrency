@@ -1,7 +1,7 @@
 class MembershipsController < ApplicationController
   before_filter :login_required
   load_resource :group
-  load_and_authorize_resource :membership, :through => :group, :shallow => true
+  load_and_authorize_resource :membership, :through => :group, :shallow => true, :except => :create
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = exception.message
