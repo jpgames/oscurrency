@@ -1,5 +1,5 @@
 <!-- <p class='formatting'><span>Select<br />multiple</span>Mac: command <br />Win: control</p> -->
-<p class='formatting'><%= t('shared.multiple_select_label') %></p>
+<p class='formatting'><%= t('shared.select_area_you_verb_service', verb: 'req' == model_name ? t('shared.want') : t('shared.offer') ) %><%= t('shared.multiple_select_label') %></p>
 <%=
     collection_select( model_name,
                       'neighborhood_ids',

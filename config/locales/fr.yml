@@ -604,6 +604,9 @@ fr:
       req_created: "a crée une nouvelle requête"
     transact:
       for: "pour"
+    select_area_you_verb_service: "Sélectionnez le quartier que vous %{verb} le service. "
+    offer: "offrez"
+    want: "voulez"
     multiple_select_label: "Pour une sélection multiple, maintenir appuyé la touche de controle (commande pour mac)"
 
   person_mailer:

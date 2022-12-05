@@ -549,6 +549,9 @@ en:
       req_created: "has created a new request"
     transact:
       for: "for"
+    select_area_you_verb_service: "Select area you %{verb} service. "
+    offer: "offer"
+    want: "want"
     multiple_select_label: "For multiple selection (at most 5) in the list, press and hold Ctrl key (or Command for Mac users)"
 
   person_mailer:
