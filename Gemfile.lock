@@ -155,6 +155,10 @@ GEM
     database_cleaner (1.99.0)
     debug_inspector (1.1.0)
     diff-lcs (1.4.4)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     dynamic_form (1.1.4)
     erubi (1.10.0)
     erubis (2.7.0)
@@ -458,6 +462,7 @@ DEPENDENCIES
   cucumber-rails
   dalli
   database_cleaner
+  dotenv-rails (= 2.0.2)
   dynamic_form
   exception_notification
   feed-normalizer

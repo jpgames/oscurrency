@@ -64,6 +64,7 @@ gem "bootstrap_form", git: 'https://github.com/herestomwiththeweather/bootstrap_
 gem 'test-unit'
 
 group :development, :test do
+  gem 'dotenv-rails', '2.0.2'
   gem "heroku-api"
   gem "rack"
   gem "rack-test"
