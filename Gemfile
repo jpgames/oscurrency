@@ -36,7 +36,7 @@ gem "feed-normalizer"
 gem "textacular"
 
 gem "aws-s3", git: "https://github.com/bartoszkopinski/aws-s3.git"
-gem "fog", '1.19.0'
+gem "fog", '1.36.0'
 gem 'xmlrpc'
 gem "carrierwave"
 gem "rmagick", '2.16.0'
@@ -65,7 +65,6 @@ gem 'test-unit'
 
 group :development, :test do
   gem 'dotenv-rails', '2.0.2'
-  gem "heroku-api"
   gem "rack"
   gem "rack-test"
   gem "awesome_print"
