@@ -9,7 +9,6 @@ class CreateHistoriesTable < ActiveRecord::Migration
        t.integer :year, :limit => 5
        t.timestamps
     end
-    add_index(:histories, [:item, :table, :month, :year])
   end
 
   def self.down
