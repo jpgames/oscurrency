@@ -28,7 +28,7 @@
   ]
 
 CATEGORIES.each do |value|
-  category = Category.find_or_create_by_name(value, :description => "")
+  category = Category.find_or_create_by(name: value, :description => "")
 end
 
 US_STATES = [
