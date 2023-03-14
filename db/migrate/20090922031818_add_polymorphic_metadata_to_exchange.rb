@@ -5,7 +5,7 @@ class AddPolymorphicMetadataToExchange < ActiveRecord::Migration
     add_column :exchanges, :metadata_id, :integer
     add_column :exchanges, :metadata_type, :string
     
-    exchanges = Exchange.find(:all)
+    exchanges = Exchange.all
     exchanges.each do |exchange|
       exchange.metadata_id = exchange.req_id
       exchange.metadata_type = 'Req'
