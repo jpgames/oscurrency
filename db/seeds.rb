@@ -90,7 +90,7 @@ US_STATES = [
   ]
 
 US_STATES.each do |value|
-  state = State.find_or_create_by_name( :name => value[0], :abbreviation => value[1] )
+  state = State.find_or_create_by(name: value[0], :abbreviation => value[1] )
 end
 
 US_BUSINESS_TYPES = [
@@ -104,10 +104,10 @@ US_BUSINESS_TYPES = [
 ]
 
 US_BUSINESS_TYPES.each do |value|
-  type = BusinessType.find_or_create_by_name(value, :description => "")
+  type = BusinessType.find_or_create_by(name: value, :description => "")
 end
 
-TimeZone.find_or_create_by_time_zone('Pacific Time (US & Canada)')
+TimeZone.find_or_create_by(time_zone: 'Pacific Time (US & Canada)')
 
 # default profile picture
 preference = Preference.first
