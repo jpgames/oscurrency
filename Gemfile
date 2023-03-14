@@ -47,9 +47,6 @@ gem "will_paginate"
 gem "aasm", '3.0.19'
 gem "authlogic", '3.5.0'
 gem "scrypt"
-#gem "authlogic-oid", :require => "authlogic_openid"
-gem "ruby-openid", :require => "openid"
-gem "open_id_authentication", :git => "git://github.com/rewritten/open_id_authentication.git"
 gem "cancancan", "1.12.0"
 gem "dalli"
 gem "redcarpet"

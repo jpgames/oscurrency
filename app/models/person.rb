@@ -6,14 +6,6 @@ class Person < ActiveRecord::Base
 
   acts_as_authentic do |c|
     c.crypto_provider = Authlogic::CryptoProviders.const_get(ENV['CRYPTOPROVIDER'].to_sym) unless ENV['CRYPTOPROVIDER'].blank?
-=begin
-    c.openid_required_fields = ['http://axschema.org/contact/email',
-      'http://axschema.org/namePerson/first',
-      'http://axschema.org/namePerson/last',
-      :fullname,
-      :email
-    ]
-=end
     c.perishable_token_valid_for = 48.hours
     c.maintain_sessions = false if Rails.env == "test"
     c.merge_validates_length_of_password_field_options :minimum => 4
@@ -448,20 +440,6 @@ class Person < ActiveRecord::Base
   end
 
   protected
-
-  def map_openid_registration(sreg_registration, ax_registration)
-    unless sreg_registration.nil?
-      self.email = sreg_registration['email'] if email.blank?
-      self.name = sreg_registration['fullname'] if name.blank?
-    end
-    unless ax_registration.nil?
-      self.email = ax_registration["http://axschema.org/contact/email"].first if email.blank?
-      if name.blank?
-        self.name = [ax_registration['http://axschema.org/namePerson/first'].first,
-                     ax_registration['http://axschema.org/namePerson/last'].first].join(' ')
-      end
-    end
-  end
 
   ## Callbacks
 
