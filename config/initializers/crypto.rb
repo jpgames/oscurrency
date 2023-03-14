@@ -8,7 +8,7 @@ module Crypto
   def self.create_keys(bits = 1024)
     private_key = OpenSSL::PKey::RSA.new(bits)
     # DO NOT WRITE PERSISTENT DATA TO THE FILESYSTEM
-    local_encryption_key = LocalEncryptionKey.find(:first)
+    local_encryption_key = LocalEncryptionKey.first
     raise "doh!" if nil == local_encryption_key
     local_encryption_key.rsa_private_key = private_key.to_s
     local_encryption_key.rsa_public_key = private_key.public_key.to_s
