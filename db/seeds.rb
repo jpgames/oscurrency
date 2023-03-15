@@ -114,7 +114,7 @@ preference = Preference.first
 if preference.nil?
   # first install
   using_email = !!((ENV['SMTP_DOMAIN'] && ENV['SMTP_SERVER']) || ENV['SENDGRID_USERNAME']) # explicit true
-  preference = Preference.create!(:app_name => (ENV['APP_NAME'] || "APP_NAME is Blank"), :server_name => ENV['SERVER_NAME'], :smtp_server => ENV['SMTP_SERVER'] || '', :email_notifications => using_email) 
+  preference = Preference.create!(:app_name => (ENV['APP_NAME'] || "APP_NAME is Blank"), :server_name => ENV['SERVER_NAME'], :email_notifications => using_email) 
   p = Person.new(:name => "admin", :email => "admin@example.com", :password => "admin", :password_confirmation => "admin", :description => "")
   p.save!
   p.admin = true
