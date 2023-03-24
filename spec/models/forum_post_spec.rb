@@ -11,28 +11,28 @@ describe ForumPost do
   end
 
   it "should be valid" do
-    @post.should be_valid
+    expect(@post).to be_valid
   end
 
   it "should require a body" do
     post = ForumPost.new
-    post.should_not be_valid
-    post.errors[:body].should_not be_empty
+    expect(post).to_not be_valid
+    expect(post.errors[:body]).to_not be_empty
   end
 
   describe "associations" do
 
     before(:each) do
       @post.save!
-      @activity = Activity.find_by_item_id(@post)
+      @activity = Activity.find_by(item_id: @post.id)
     end
 
     it "should have an activity" do
-      @activity.should_not be_nil
+      expect(@activity).to_not be_nil
     end
 
     it "should add an activity to the poster" do
-      @post.person.recent_activity.should contain(@activity)
+      expect(@post.person.recent_activity).to contain(@activity)
     end
   end
 end

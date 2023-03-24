@@ -36,7 +36,7 @@ describe Topic do
     end
 
     it "should have an activity" do
-      Activity.find_by_item_id(@topic).should_not be_nil
+      expect(Activity.find_by(item_id: @topic.id)).to_not be_nil
     end
   end
 end
