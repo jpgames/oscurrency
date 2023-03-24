@@ -4,8 +4,10 @@
   <%= link_to t('groups.show.join_group'),group_memberships_path(@group), {:id => 'join_group'} %>
   </li>
   <li class="add_to_memberships <%= @membership_display %>">
+    <%- unless Membership.pending?(current_person, @group) -%>
     <%= t('groups.show.you_are_a_member_of') %> <strong><%= h @group.name%></strong>
     <br />
+    <% end %>
     <% unless @group.default_group? %>
       <% if Membership.exist?(current_person, @group) %>
         (<%= link_to t('groups.show.leave_group'),delete_membership_link(current_person,@group), {:id => 'leave_group'} %>) 

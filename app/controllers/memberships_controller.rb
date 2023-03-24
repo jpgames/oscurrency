@@ -108,7 +108,7 @@ class MembershipsController < ApplicationController
   
   def suscribe
     @membership.accept
-    after_transaction { PersonMailerQueue.membership_accepted(@membership) }
+    PersonMailerQueue.membership_accepted(@membership)
 
     respond_to do |format|
       flash[:success] = t('success_you_have_accepted') + " '#{@membership.person.display_name}' #{t('success_for_group')} '#{@membership.group.name}'"
