@@ -21,7 +21,7 @@ module PeopleHelper
     unless options[:link_options].nil?                    
       link_options.merge!(options[:link_options])
     end
-    content = image_tag(person.send(image), image_options)
+    content = image_tag(person.send(image), image_options) unless person.send(image).blank?
     # This is a hack needed for the way the designer handled rastered images
     # (with a 'vcard' class).
     if options[:vcard]
