@@ -46,7 +46,7 @@ gem "will_paginate"
 gem "aasm", '3.0.19'
 gem "authlogic", '3.5.0'
 gem "scrypt"
-gem "cancancan", "1.12.0"
+gem "cancancan", "1.15.0"
 gem "dalli", "2.7.6"
 gem "redcarpet"
 gem 'syck'

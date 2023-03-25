@@ -87,7 +87,7 @@ GEM
     builder (3.2.4)
     calendar_helper (0.2.6)
       open4
-    cancancan (1.12.0)
+    cancancan (1.15.0)
     carrierwave (2.2.3)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -429,7 +429,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap_form!
   calendar_helper
-  cancancan (= 1.12.0)
+  cancancan (= 1.15.0)
   carrierwave
   coffee-rails
   dalli (= 2.7.6)
