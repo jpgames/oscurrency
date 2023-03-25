@@ -52,18 +52,6 @@ describe Person do
 
   describe "activity associations" do
 
-    it "should log an activity if description changed" do
-      @person.update_attributes(:description => "New Description")
-      activity = Activity.find_by(item_id: @person.id)
-      expect(Activity.global_feed).to contain(activity)
-    end
-
-    it "should not log an activity if description didn't change" do
-      @person.save!
-      activity = Activity.find_by_item_id(@person)
-      Activity.global_feed.should_not contain(activity)
-    end
-
     it "should disappear if the person is destroyed" do
       person = create_person(:save => true)
       # Create a feed activity.

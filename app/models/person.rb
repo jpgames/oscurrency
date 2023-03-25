@@ -132,8 +132,6 @@ class Person < ActiveRecord::Base
   before_validation :prepare_email, :handle_nil_description
   #after_create :connect_to_admin
   before_update :deactivation_notification
-  before_update :set_old_description
-  after_update :log_activity_description_changed
   before_destroy :destroy_activities, :destroy_feeds
 
   def self.searchable_columns
@@ -480,17 +478,6 @@ class Person < ActiveRecord::Base
       if Person.global_prefs.can_send_email? && !Person.global_prefs.new_member_notification.blank?
         after_transaction { PersonMailerQueue.deactivation_notification(self) }
       end
-    end
-  end
-
-  def set_old_description
-    p = Person.find(self)
-    @old_description = p.description
-  end
-
-  def log_activity_description_changed
-    unless @old_description == description or description.blank?
-      add_activities(:item => self, :person => self)
     end
   end
 
