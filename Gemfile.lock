@@ -155,7 +155,7 @@ GEM
       railties (>= 3.2, < 8.0)
     formatador (1.1.0)
     geokit (1.13.1)
-    geokit-rails (2.0.1)
+    geokit-rails (2.2.0)
       geokit (~> 1.5)
       rails (>= 3.0)
     girl_friday (0.11.2)
@@ -439,7 +439,7 @@ DEPENDENCIES
   exception_notification
   feed-normalizer
   fog-aws
-  geokit-rails (= 2.0.1)
+  geokit-rails (= 2.2.0)
   girl_friday
   git
   guard-spork

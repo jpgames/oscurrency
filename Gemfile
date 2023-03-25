@@ -40,7 +40,7 @@ gem 'xmlrpc'
 gem "carrierwave"
 gem "rmagick", '2.16.0'
 gem "json"
-gem "geokit-rails", "2.0.1"
+gem "geokit-rails", "2.2.0"
 
 gem "will_paginate"
 gem "aasm", '3.0.19'
