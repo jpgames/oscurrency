@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
                 :set_person_locale,
                 :set_theme
 
-  around_filter :set_time_zone
+  around_action :set_time_zone
 
   layout proc{ |c| c.request.xhr? ? false : "application" }
 
