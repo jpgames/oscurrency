@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 ruby "2.4.10"
-gem 'rails', '5.0.1'
+gem 'rails', '5.0.2'
 gem 'responders'
 
 # Bundle edge Rails instead:
