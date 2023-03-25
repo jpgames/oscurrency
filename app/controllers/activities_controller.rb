@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 
-  before_filter :authorize_user, :only => :destroy
+  before_action :authorize_user, :only => :destroy
 
   # This gets called after activity destruction for some reason.
   def show

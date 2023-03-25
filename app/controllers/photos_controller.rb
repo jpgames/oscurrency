@@ -1,10 +1,10 @@
 class PhotosController < ApplicationController
 
-  before_filter :login_required
-  before_filter :correct_user_required, :only => [ :update, :destroy ]
-  before_filter :admin_required, :only => [:default_profile_picture, :update_default_profile_picture, :default_group_picture, :update_default_group_picture]
-  before_filter :must_be_default_profile_picture, :only => :update_default_profile_picture
-  before_filter :must_be_default_group_picture, :only => :update_default_group_picture
+  before_action :login_required
+  before_action :correct_user_required, :only => [ :update, :destroy ]
+  before_action :admin_required, :only => [:default_profile_picture, :update_default_profile_picture, :default_group_picture, :update_default_group_picture]
+  before_action :must_be_default_profile_picture, :only => :update_default_profile_picture
+  before_action :must_be_default_group_picture, :only => :update_default_group_picture
 
   
   def index

@@ -1,11 +1,11 @@
 class TransactsController < ApplicationController
-  skip_before_filter :require_activation
-  prepend_before_filter :activate_authlogic
+  skip_before_action :require_activation
+  prepend_before_action :activate_authlogic
 #  oauthenticate :strategies => :token, :except => [:about_user,:wallet,:scopes,:new]
 #  oauthenticate :strategies => [], :only => :new
 #  oauthenticate :strategies => :token, :interactive => false, :only => [:about_user,:wallet,:scopes]
-  before_filter :find_group_by_asset, :except => [:about_user,:user_info,:wallet,:scopes]
-  skip_before_filter :verify_authenticity_token, :set_person_locale, :if => :oauth?
+  before_action :find_group_by_asset, :except => [:about_user,:user_info,:wallet,:scopes]
+  skip_before_action :verify_authenticity_token, :set_person_locale, :if => :oauth?
 
   def about_user
     @person = {'login' => current_person.to_param,

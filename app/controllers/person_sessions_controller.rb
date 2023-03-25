@@ -1,7 +1,7 @@
 # This controller handles the login/logout function of the site.
 class PersonSessionsController < ApplicationController
 
-  skip_before_filter :require_activation, :only => [:new, :destroy]
+  skip_before_action :require_activation, :only => [:new, :destroy]
 
   def new
     @person_session = PersonSession.new

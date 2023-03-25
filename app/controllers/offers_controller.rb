@@ -2,10 +2,10 @@ class OffersController < ApplicationController
 
   respond_to :html, :xml, :json, :js
 
-  before_filter :login_required
+  before_action :login_required
   load_resource :group
   load_and_authorize_resource :offer, :through => :group, :shallow => true
-  before_filter :correct_person_required, :only => [:edit, :update, :destroy]
+  before_action :correct_person_required, :only => [:edit, :update, :destroy]
 
   def index
     @selected_category = params[:category_id].nil? ? nil : Category.find(params[:category_id])

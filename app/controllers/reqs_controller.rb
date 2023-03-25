@@ -2,8 +2,8 @@ class ReqsController < ApplicationController
 
   respond_to :html, :xml, :json, :js
 
-  skip_before_filter :require_activation, :only => [:show, :index]
-  before_filter :login_required
+  skip_before_action :require_activation, :only => [:show, :index]
+  before_action :login_required
   load_resource :group
   load_and_authorize_resource :req, :through => :group, :shallow => true
 

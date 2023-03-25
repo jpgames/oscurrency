@@ -1,9 +1,9 @@
 class PeopleController < ApplicationController
 
-  skip_before_filter :require_activation, :only => :verify_email
-  skip_before_filter :admin_warning, :only => [ :show, :update ]
-  before_filter :login_required, :except => [:new, :create, :verify_email]
-  before_filter :correct_person_required, :only => [ :edit, :update ]
+  skip_before_action :require_activation, :only => :verify_email
+  skip_before_action :admin_warning, :only => [ :show, :update ]
+  before_action :login_required, :except => [:new, :create, :verify_email]
+  before_action :correct_person_required, :only => [ :edit, :update ]
 
   def index
     if params[:sort]

@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
-  before_filter :login_required
-  before_filter :correct_user_required
+  before_action :login_required
+  before_action :correct_user_required
 
   def index
     @addresses = current_person.addresses.all

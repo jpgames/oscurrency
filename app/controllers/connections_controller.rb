@@ -1,9 +1,9 @@
 class ConnectionsController < ApplicationController
   
-  before_filter :login_required, :setup
-  before_filter :authorize_view, :only => :index
-  before_filter :authorize_person, :only => [:edit, :update, :destroy]
-  before_filter :redirect_for_inactive, :only => [:edit, :update]
+  before_action :login_required, :setup
+  before_action :authorize_view, :only => :index
+  before_action :authorize_person, :only => [:edit, :update, :destroy]
+  before_action :redirect_for_inactive, :only => [:edit, :update]
   
   # Show all the contacts for a person.
   def index

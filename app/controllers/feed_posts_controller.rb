@@ -1,5 +1,5 @@
 class FeedPostsController < ApplicationController
-  before_filter :login_required, :admin_required
+  before_action :login_required, :admin_required
 
   def refresh_blog
     new_posts_count = FeedPost.update_posts

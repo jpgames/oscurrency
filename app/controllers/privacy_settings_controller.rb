@@ -1,5 +1,5 @@
 class PrivacySettingsController < ApplicationController
-  before_filter :login_required
+  before_action :login_required
   load_and_authorize_resource
 
   def update

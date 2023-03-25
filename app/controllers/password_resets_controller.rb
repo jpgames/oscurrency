@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
-  before_filter :require_no_person
-  before_filter :load_person_using_perishable_token, :only => [:edit,:update]
+  before_action :require_no_person
+  before_action :load_person_using_perishable_token, :only => [:edit,:update]
 
   def new
   end

@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_filter :login_required
+  before_action :login_required
   load_resource :group
   load_and_authorize_resource :membership, :through => :group, :shallow => true, :except => :create
 

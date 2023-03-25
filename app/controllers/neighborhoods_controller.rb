@@ -1,6 +1,6 @@
 class NeighborhoodsController < ApplicationController
 
-  before_filter :login_required
+  before_action :login_required
 
   def show
     @neighborhood = Neighborhood.find(params[:id])

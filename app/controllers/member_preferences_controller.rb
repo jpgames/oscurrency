@@ -1,5 +1,5 @@
 class MemberPreferencesController < ApplicationController
-  before_filter :login_required
+  before_action :login_required
   authorize_resource
 
   # GET /member_preferences/1

@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_filter :login_required
+  before_action :login_required
   load_resource :person
   authorize_resource :account, :through => :person
 

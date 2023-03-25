@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
 
-  before_filter :login_required, :setup
-  before_filter :authenticate_person, :only => :show
-  before_filter :handle_cancel, :only => :create
+  before_action :login_required, :setup
+  before_action :authenticate_person, :only => :show
+  before_action :handle_cancel, :only => :create
 
   # GET /messages
   def index

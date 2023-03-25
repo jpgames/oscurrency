@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-  before_filter :login_required
-  skip_before_filter :require_activation
+  before_action :login_required
+  skip_before_action :require_activation
   authorize_resource
   
   def index

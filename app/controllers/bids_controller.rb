@@ -1,7 +1,7 @@
 class BidsController < ApplicationController
   load_resource :req
   authorize_resource :bid, :through => :req
-  before_filter :login_required
+  before_action :login_required
 
   # POST /bids
   # POST /bids.xml

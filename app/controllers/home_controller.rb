@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  skip_before_filter :require_activation
+  skip_before_action :require_activation
   
   def index
     if logged_in?

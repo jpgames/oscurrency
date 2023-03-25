@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :login_required, :except => :index
+  before_action :login_required, :except => :index
 
   # GET /categories
   # GET /categories.xml

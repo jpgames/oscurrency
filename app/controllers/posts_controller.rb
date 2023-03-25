@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   include ApplicationHelper
   
-  before_filter :login_required
-  before_filter :get_instance_vars
+  before_action :login_required
+  before_action :get_instance_vars
 
   def index
     respond_to do |format|
