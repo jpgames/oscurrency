@@ -1,12 +1,11 @@
 class CategoriesController < ApplicationController
   before_filter :login_required, :except => :index
-  cache_sweeper :category_sweeper, :only => [:create, :update, :destroy]
 
   # GET /categories
   # GET /categories.xml
   def index
-    @top_level_categories = Category.find(:all, :conditions => "parent_id is NULL").sort_by {|a| a.name}
-    @categories = Category.find(:all).sort_by { |a| a.long_name }
+    @top_level_categories = Category.where("parent_id is NULL").sort_by {|a| a.name}
+    @categories = Category.all.sort_by { |a| a.long_name }
 
     respond_to do |format|
       format.html # index.html.erb
@@ -52,7 +51,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.xml
   def create
-    @category = Category.new(params[:category])
+    @category = Category.new(category_params)
 
     respond_to do |format|
       if can?(:create, @category) && @category.save
@@ -73,7 +72,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     respond_to do |format|
-      if can?(:update, @category) && @category.update_attributes(params[:category])
+      if can?(:update, @category) && @category.update_attributes(category_params)
         flash[:notice] = t('notice_category_updated')
         format.html { redirect_to(@category) }
         format.xml  { head :ok }
@@ -103,4 +102,9 @@ class CategoriesController < ApplicationController
       end
     end
   end
+
+  private
+    def category_params
+      params.require(:category).permit(:name, :parent_id)
+    end
 end

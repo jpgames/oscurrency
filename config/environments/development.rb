@@ -1,7 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  # XXX uncomment this for memcache
-  #require 'active_support/cache/dalli_store23'
   #
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -13,9 +11,11 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  #config.cache_store = :dalli_store
+  config.cache_store = :mem_cache_store
 
+  config.action_controller.perform_caching = true
   # Enable/disable caching. By default caching is disabled.
+=begin
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
 
@@ -28,6 +28,7 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+=end
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
