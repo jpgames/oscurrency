@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 ruby "2.4.10"
-gem 'rails', '5.0.2'
+gem 'rails', '5.1.0'
 gem 'responders'
 
 # Bundle edge Rails instead:
@@ -44,9 +44,9 @@ gem "geokit-rails", "2.2.0"
 
 gem "will_paginate"
 gem "aasm", '3.0.19'
-gem "authlogic", '3.5.0'
+gem "authlogic", '3.6.1'
 gem "scrypt"
-gem "cancancan", "1.15.0"
+gem "cancancan", "1.16.0"
 gem "dalli", "2.7.6"
 gem "redcarpet"
 gem 'syck'
