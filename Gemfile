@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 source 'https://rubygems.org'
-ruby "2.4.10"
+ruby "2.5.9"
 gem 'rails', '5.1.0'
 gem 'responders'
 
