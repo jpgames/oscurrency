@@ -23,12 +23,12 @@ describe Group do
   describe 'attributes' do
     it "should not be able to update someone else's group" do
       ability = Ability.new(@p2)
-      ability.should_not be_able_to(:update,@g)
+      expect(ability).to_not be_able_to(:update,@g)
     end
 
     it "should be able to update own group" do
       ability = Ability.new(@p)
-      ability.should be_able_to(:update,@g)
+      expect(ability).to be_able_to(:update,@g)
     end
   end
 
@@ -43,13 +43,13 @@ describe Group do
       it "should not allow an unauthorized member to update a group" do
         @membership.roles = ['individual']
         @membership.save
-        @ability.should_not be_able_to(:update,@g)
+        expect(@ability).to_not be_able_to(:update,@g)
       end
 
       it "should allow an admin member to update a group" do
         @membership.roles = ['individual','admin']
         @membership.save
-        @ability.should be_able_to(:update,@g)
+        expect(@ability).to be_able_to(:update,@g)
       end
 
       it "should not allow an admin member to update another admin membership" do
@@ -62,13 +62,13 @@ describe Group do
         @ability_sneaky_admin = Ability.new(@p3)
         @membership_sneaky_admin.roles = ['individual','admin']
         @membership_sneaky_admin.save
-        @ability_sneaky_admin.should_not be_able_to(:update,@membership)
+        expect(@ability_sneaky_admin).to_not be_able_to(:update,@membership)
       end
 
       it "should allow an admin to update her own membership" do
         @membership.roles = ['individual','admin']
         @membership.save
-        @ability.should be_able_to(:update,@membership)
+        expect(@ability).to be_able_to(:update,@membership)
       end
     end
 
@@ -83,7 +83,7 @@ describe Group do
       it "should allow a member to make a forum post" do
         @forum_post = @topic.posts.build(:body => "Should we talk about the weather?")
         @forum_post.person = @p2
-        @ability.should be_able_to(:create,@forum_post)
+        expect(@ability).to be_able_to(:create,@forum_post)
       end
 
       it "should not allow a non-member to make a forum post if forum is not world writable" do
@@ -95,7 +95,7 @@ describe Group do
         @forum_post = @topic.posts.build(:body => "Should we talk about the weather?")
         @forum_post.person = @p3
 
-        @ability_nonmember.should_not be_able_to(:create,@forum_post)
+        expect(@ability_nonmember).to_not be_able_to(:create,@forum_post)
       end
 
       it "should allow a non-member to make a forum post if forum is world writable" do
@@ -107,7 +107,7 @@ describe Group do
         @forum_post = @topic.posts.build(:body => "We have to do it in part as a matter of social responsibility to other people who are going to live in the world that we make.")
         @forum_post.person = @p3
 
-        @ability_nonmember.should be_able_to(:create,@forum_post)
+        expect(@ability_nonmember).to be_able_to(:create,@forum_post)
       end
     end
 
@@ -116,12 +116,12 @@ describe Group do
         @p3 = people(:buzzard)
         @ability_nonmember = Ability.new(@p3)
         @offer = Offer.new(:name => "Pizza", :group => @g, :price => 5, :expiration_date => Date.today,:available_count => 1, :person => @p3)
-        @ability_nonmember.should_not be_able_to(:create,@offer)
+        expect(@ability_nonmember).to_not be_able_to(:create,@offer)
       end
 
       it "should allow a member of a group to create an offer" do
         @offer = Offer.new(:name => "Pizza", :group => @g, :price => 5, :expiration_date => Date.today,:available_count => 1, :person => @p2)
-        @ability.should be_able_to(:create,@offer)
+        expect(@ability).to be_able_to(:create,@offer)
       end
 
     end
@@ -148,7 +148,7 @@ describe Group do
       it "should allow a member of a group without a currency to create a request" do
         @req = Req.new(person: @p2, group: @g_nocurrency, name:'test req', description:'test req description', estimated_hours:3, due_date:1.day.from_now, biddable:true, active:true)
         @req.save!
-        @req.should be_valid
+        expect(@req).to be_valid
       end
 
       it "should allow a member of a group without a currency to approve a bid" do
@@ -168,7 +168,7 @@ describe Group do
         @bid.accept!
         @bid.req.ability = @ability
         @bid.pay!
-        @bid.should be_valid
+        expect(@bid).to be_valid
       end
     end
 
@@ -183,12 +183,12 @@ describe Group do
         @p3 = people(:buzzard)
         @e.customer = @p3
         @ability_nonmember = Ability.new(@p3)
-        @ability_nonmember.should_not be_able_to(:create,@e)
+        expect(@ability_nonmember).to_not be_able_to(:create,@e)
       end
 
       it "should allow a regular member of a group to make an exchange" do
         # if the customer is not specified, the current_person is the payer
-        @ability.should be_able_to(:create,@e)
+        expect(@ability).to be_able_to(:create,@e)
       end
 
       it "should not allow an individual member to make an unauthorized payment" do
@@ -199,7 +199,7 @@ describe Group do
         account.balance = 0.0
         account.credit_limit = 0.5
         account.save!
-        @ability.should_not be_able_to(:create,@e)
+        expect(@ability).to_not be_able_to(:create,@e)
       end
 
       it "should not allow an individual member to make a worker initiated payment" do
@@ -209,7 +209,7 @@ describe Group do
         @e_seller_initiated = Exchange.new(customer_id: @p.id, group_id: @g.id, amount: 1.0)
         @e_seller_initiated.metadata = @req
         @e_seller_initiated.worker = @p2
-        @ability.should_not be_able_to(:create,@e_seller_initiated)
+        expect(@ability).to_not be_able_to(:create,@e_seller_initiated)
       end
 
       it "should allow a point of sale operator to make a worker initiated payment" do
@@ -219,7 +219,7 @@ describe Group do
         @e_seller_initiated = Exchange.new(customer_id: @p.id, group_id: @g.id, amount: 1.0)
         @e_seller_initiated.metadata = @req
         @e_seller_initiated.worker = @p2
-        @ability.should be_able_to(:create,@e_seller_initiated)
+        expect(@ability).to be_able_to(:create,@e_seller_initiated)
       end
 
       describe 'account balances' do
@@ -237,27 +237,27 @@ describe Group do
         it "should update account balance when a payment is created" do
           @e.save!
           account_after_payment = @p2.account(@g)
-          account_after_payment.balance.should == 9.0
+          expect(account_after_payment.balance).to eq(9.0)
         end
 
         it "should update account balance when a payment is deleted" do
           @e.save!
           @e.destroy
           account_after_payment_deletion = @p2.account(@g)
-          account_after_payment_deletion.balance.should == 10.0
+          expect(account_after_payment_deletion.balance).to eq(10.0)
         end
 
         it "should update account paid when a payment is created" do
           @e.save!
           payer_account_after_payment = @p2.account(@g)
-          payer_account_after_payment.paid.should == 91.0
+          expect(payer_account_after_payment.paid).to eq(91.0)
         end
 
         it "should update account paid when a payment is deleted" do
           @e.save!
           @e.destroy
           payer_account_after_payment_deletion = @p2.account(@g)
-          payer_account_after_payment_deletion.paid.should == 90.0
+          expect(payer_account_after_payment_deletion.paid).to eq(90.0)
         end
 
         it "should allow a transaction fee to be sent to a reserve account" do
@@ -281,10 +281,10 @@ describe Group do
           @e.save!
 
           account_buzzard_after_payment = @p3.account(@g)
-          account_buzzard_after_payment.balance.should == 10.2
+          expect(account_buzzard_after_payment.balance).to eq(10.2)
 
           account_quentin_after_payment = @p.account(@g)
-          account_quentin_after_payment.balance.should == 11.8
+          expect(account_quentin_after_payment.balance).to eq(11.8)
         end
 
         it "should not allow the sum of reserve percentages to exceed 1" do
@@ -301,7 +301,7 @@ describe Group do
           @account_buzzard.reserve_percent = 1.01
           @account_buzzard.reserve = true
 
-          @ability.should_not be_able_to(:update,@account_buzzard)
+          expect(@ability).to_not be_able_to(:update,@account_buzzard)
         end
 
       end
@@ -316,7 +316,7 @@ describe Group do
     it "should set the account balance of a new member" do
       Membership.request(@p2,@g,false)
       account = @p2.account(@g)
-      account.credit_limit.should == 40.0
+      expect(account.credit_limit).to eq(40.0)
     end
 
     it "should update the account balance of an existing member when update" do
@@ -324,7 +324,7 @@ describe Group do
       @g.default_credit_limit = 50.0
       @g.save
       account = @p2.account(@g)
-      account.credit_limit.should == 50.0
+      expect(account.credit_limit).to eq(50.0)
     end
   end
 end

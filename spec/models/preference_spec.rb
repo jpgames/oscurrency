@@ -4,8 +4,8 @@ describe Preference do
   describe "static global preference" do
     it "should prohibit multiple preference objects" do
       @preferences = Preference.new
-      @preferences.save.should be_falsey
-      @preferences.errors.full_messages.should include('Attempting to instantiate another Preference object')
+      expect(@preferences.save).to be_falsey
+      expect(@preferences.errors.full_messages).to include('Attempting to instantiate another Preference object')
     end
   end
 
@@ -15,11 +15,11 @@ describe Preference do
     end
 
     it "should have an analytics field" do
-      @preferences.should respond_to(:analytics)
+      expect(@preferences).to respond_to(:analytics)
     end
 
     it "should have a blank initial analytics" do
-      @preferences.analytics.should be_blank
+      expect(@preferences.analytics).to be_blank
     end
   end
 end

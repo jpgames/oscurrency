@@ -2,14 +2,14 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Forum do
   it "should be valid" do
-    Forum.new.should be_valid
+    expect(Forum.new).to be_valid
   end
   
   it "should have topics" do
-    forums(:one).topics.load.to_a.should be_a_kind_of(Array)
+    expect(forums(:one).topics.load.to_a).to be_a_kind_of(Array)
   end
   
   it "should have posts" do
-    forums(:one).posts.load.to_a.should be_a_kind_of(Array)
+    expect(forums(:one).posts.load.to_a).to be_a_kind_of(Array)
   end
 end

@@ -9,24 +9,24 @@ describe Topic do
   end
 
   it "should be valid" do
-    @topic.should be_valid
+    expect(@topic).to be_valid
   end
 
   it "should require a name" do
     topic = Topic.new
-    topic.should_not be_valid
-    topic.errors[:name].should_not be_empty
+    expect(topic).to_not be_valid
+    expect(topic.errors[:name]).to_not be_empty
   end
 
   it "should have many posts" do
-    @topic.posts.load.to_a.should be_a_kind_of(Array)
+    expect(@topic.posts.load.to_a).to be_a_kind_of(Array)
   end
 
   it "should belong to a person" do
     quentin = people(:quentin)
     topic = Topic.new
     topic.person = quentin
-    topic.person.should == quentin
+    expect(topic.person).to eq(quentin)
   end
 
   describe "associations" do

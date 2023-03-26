@@ -7,11 +7,11 @@ describe Conversation do
   end
 
   it "should have many messages" do
-    @conversation.should respond_to(:messages)
+    expect(@conversation).to respond_to(:messages)
   end
   
   it "should order messages by most recent first" do
     sorted_messages = @conversation.messages.sort_by(&:created_at)
-    @conversation.messages.should == sorted_messages
+    expect(@conversation.messages).to eq(sorted_messages)
   end
 end

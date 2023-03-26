@@ -6,6 +6,6 @@ describe Feed do
   end
 
   it "should be valid" do
-    @feed.should be_valid
+    expect(@feed).to be_valid
   end
 end

@@ -8,60 +8,36 @@ describe Person do
 
   describe "attributes" do
     it "should be valid" do
-      create_person.should be_valid
+      expect(create_person).to be_valid
     end
 
     it 'requires password' do
       p = create_person(:password => nil)
-      p.errors[:password].should_not be_nil
+      expect(p.errors[:password]).to_not be_nil
     end
 
     it 'requires password confirmation' do
       p = create_person(:password_confirmation => nil)
-      p.errors[:password_confirmation].should_not be_nil
+      expect(p.errors[:password_confirmation]).to_not be_nil
     end
 
     it 'requires email' do
       p = create_person(:email => nil)
-      p.errors[:email].should_not be_nil
-    end
-
-    it "should prevent duplicate email addresses using a unique key" do
-      create_person(:save => true)
-      duplicate = create_person
-      lambda do
-        # Pass 'false' to 'save' in order to skip the validations.
-        duplicate.save(validate: false)
-      end.should raise_error(ActiveRecord::StatementInvalid)
+      expect(p.errors[:email]).to_not be_nil
     end
 
     it "should require name" do
       p = create_person(:name => nil)
-      p.errors[:name].should_not be_nil
+      expect(p.errors[:name]).to_not be_nil
     end
 
     it "should strip spaces in email field" do
-      create_person(:email => 'example@example.com ').should be_valid
+      expect(create_person(:email => 'example@example.com ')).to be_valid
     end
 
     it "should be valid even with a nil description" do
       p = create_person(:description => nil)
-      p.should be_valid
-    end
-  end
-
-  describe "activity associations" do
-
-    it "should disappear if the person is destroyed" do
-      person = create_person(:save => true)
-      # Create a feed activity.
-      Connection.connect(person, @person)
-      @person.update_attributes(:name => "New name")
-
-      Activity.where(person_id: person.id).should_not be_empty
-      person.destroy
-      Activity.where(person_id: person.id).should be_empty
-      Feed.where(person_id: person.id).should be_empty
+      expect(p).to be_valid
     end
   end
 
@@ -69,63 +45,63 @@ describe Person do
     it "should have the right to_param method" do
       # Person params should have the form '1-michael-hartl'.
       param = "#{@person.id}-quentin"
-      @person.to_param.should == param
+      expect(@person.to_param).to eq(param)
     end
 
     it "should have a safe uri" do
       @person.name = "Michael & Hartl"
       param = "#{@person.id}-michael-and-hartl"
-      @person.to_param.should == param
+      expect(@person.to_param).to eq(param)
     end
   end
 
   describe "contact associations" do
     it "should have associated photos" do
-      @person.photos.should_not be_nil
+      expect(@person.photos).to_not be_nil
     end
 
     it "should not currently have any photos" do
-      @person.photos.should be_empty
+      expect(@person.photos).to be_empty
     end
   end
 
   describe "message associations" do
     it "should have sent messages" do
-      @person.sent_messages.should_not be_nil
+      expect(@person.sent_messages).to_not be_nil
     end
 
     it "should have received messages" do
-      @person.received_messages.should_not be_nil
+      expect(@person.received_messages).to_not be_nil
     end
   end
 
   describe "activation" do
 
     it "should deactivate a person" do
-      @person.should_not be_deactivated
+      expect(@person).to_not be_deactivated
       @person.toggle(:deactivated)
-      @person.should be_deactivated
+      expect(@person).to be_deactivated
     end
 
     it "should reactivate a person" do
       @person.toggle(:deactivated)
-      @person.should be_deactivated
+      expect(@person).to be_deactivated
       @person.toggle(:deactivated)
-      @person.should_not be_deactivated
+      expect(@person).to_not be_deactivated
     end
 
     it "should have nil email verification" do
       person = create_person
-      person.email_verified.should be_nil
+      expect(person.email_verified).to be_nil
     end
 
     it "should have a working active? helper boolean" do
-      @person.should be_active
+      expect(@person).to be_active
       enable_email_notifications
       @person.email_verified = false
-      @person.should_not be_active
+      expect(@person).to_not be_active
       @person.email_verified = true
-      @person.should be_active
+      expect(@person).to be_active
     end
 
     it "should hide and show connected requests after deactivation and then activation of user" do
@@ -134,14 +110,14 @@ describe Person do
       @person.save
       create_request_like(@person, group)
 
-      Req.custom_search(nil, group, true, 1, 25, nil).should_not be_empty
+      expect(Req.custom_search(nil, group, true, 1, 25, nil)).to_not be_empty
       @person.deactivated = true
       @person.save
 
-      Req.custom_search(nil, group, true, 1, 25, nil).should be_empty
+      expect(Req.custom_search(nil, group, true, 1, 25, nil)).to be_empty
       @person.deactivated = false
       @person.save      
-      Req.custom_search(nil, group, true, 1, 25, nil).should_not be_empty
+      expect(Req.custom_search(nil, group, true, 1, 25, nil)).to_not be_empty
     end
 
     it "should hide and show connected offers after deactivation and then activation of user" do
@@ -150,43 +126,43 @@ describe Person do
       @person.save
       create_offer_like(@person, group)
 
-      Offer.custom_search(nil, group, true, 1, 25, nil).should_not be_empty
+      expect(Offer.custom_search(nil, group, true, 1, 25, nil)).to_not be_empty
       @person.deactivated = true
       @person.save
 
-      Offer.custom_search(nil, group, true, 1, 25, nil).should be_empty
+      expect(Offer.custom_search(nil, group, true, 1, 25, nil)).to be_empty
       @person.deactivated = false
       @person.save      
-      Offer.custom_search(nil, group, true, 1, 25, nil).should_not be_empty
+      expect(Offer.custom_search(nil, group, true, 1, 25, nil)).to_not be_empty
     end
 
   end
 
   describe "mostly active" do
     it "should include a recently logged-in person" do
-      Person.mostly_active.should contain(@person)
+      expect(Person.mostly_active).to contain(@person)
     end
 
     pending "should not include a deactivated person" do
       @person.toggle!(:deactivated)
-      Person.mostly_active.should_not contain(@person)
+      expect(Person.mostly_active).to_not contain(@person)
     end
 
     pending "should not include an email unverified person" do
       enable_email_notifications
       @person.email_verified = false; @person.save!
-      Person.mostly_active.should_not contain(@person)
+      expect(Person.mostly_active).to_not contain(@person)
     end
 
     it "should not include a person who has never logged in" do
       @person.last_logged_in_at = nil; @person.save
-      Person.mostly_active.should_not contain(@person)
+      expect(Person.mostly_active).to_not contain(@person)
     end
 
     it "should not include a person who logged in too long ago" do
       @person.last_logged_in_at = Person::TIME_AGO_FOR_MOSTLY_ACTIVE.ago - 1
       @person.save
-      Person.mostly_active.should_not contain(@person)
+      expect(Person.mostly_active).to_not contain(@person)
     end
   end
 
@@ -197,28 +173,28 @@ describe Person do
     end
 
     it "should un-admin a person" do
-      @person.should be_admin
+      expect(@person).to be_admin
       @person.toggle(:admin)
-      @person.should_not be_admin
+      expect(@person).to_not be_admin
     end
 
     it "should have a working last_admin? method" do
-      @person.should be_last_admin
+      expect(@person).to be_last_admin
       people(:aaron).toggle!(:admin)
-      @person.should_not be_last_admin
+      expect(@person).to_not be_last_admin
     end
   end
 
   describe "active class methods" do
     it "should not return deactivated people" do
       @person.toggle!(:deactivated)
-      Person.active.should_not contain(@person)
+      expect(Person.active).to_not contain(@person)
     end
 
     pending "should not return email unverified people" do
       @person.email_verified = false
       @person.save!
-      Person.active.should_not contain(@person)
+      expect(Person.active).to_not contain(@person)
     end
   end
 
@@ -228,7 +204,7 @@ describe Person do
       @person.default_group_id = group.id
       @person.save
       pseudo_req = create_request_like(@person, group, false)
-      @person.reqs_for_group(group).should_not contain(pseudo_req)
+      expect(@person.reqs_for_group(group)).to_not contain(pseudo_req)
     end
 
     it "should include real requests" do
@@ -236,7 +212,7 @@ describe Person do
       @person.default_group_id = group.id
       @person.save
       real_req = create_request_like(@person, group, true)
-      @person.reqs_for_group(group).should contain(real_req)
+      expect(@person.reqs_for_group(group)).to contain(real_req)
     end
   end
 

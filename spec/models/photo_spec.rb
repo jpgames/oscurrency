@@ -9,20 +9,20 @@ describe Photo do
   end
 
   it "should upload successfully" do
-    new_photo.should be_valid
+    expect(new_photo).to be_valid
   end
 
   it "should be able to make a primary photo" do
-    new_photo(:primary => true).should be_primary
+    expect(new_photo(:primary => true)).to be_primary
   end
 
   it "should be able to make a non-primary photo" do
-    new_photo(:primary => false).should_not be_primary
+    expect(new_photo(:primary => false)).to_not be_primary
   end
 
 
   it "should have an associated person" do
-    new_photo.photoable.should == @person
+    expect(new_photo.photoable).to eq(@person)
   end
 
   private

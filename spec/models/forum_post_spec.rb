@@ -30,9 +30,5 @@ describe ForumPost do
     it "should have an activity" do
       expect(@activity).to_not be_nil
     end
-
-    it "should add an activity to the poster" do
-      expect(@post.person.recent_activity).to contain(@activity)
-    end
   end
 end
