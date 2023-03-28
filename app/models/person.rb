@@ -182,6 +182,10 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def recent_activity
+    Activity.where(:person_id => self.id).order('created_at DESC').limit(FEED_SIZE)
+  end
+
   ## For the home page...
 
   # Return some contacts for the home page.
