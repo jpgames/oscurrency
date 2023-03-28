@@ -1,6 +1,6 @@
 ### Quick Facts
-- ruby 2.4.10
-- rails 4.2.11.3
+- ruby 2.5.9
+- rails 5.1.5
 - heroku deployment
 - [Issues](https://github.com/bace/oscurrency/issues)
 - [Contributors](https://github.com/bace/oscurrency/graphs/contributors)
@@ -65,7 +65,6 @@ In addition to configuration through the web admin interface, outgoing email con
 [Setting up development environment on Ubuntu](https://github.com/oscurrency/oscurrency/wiki/Setting-up-development-environment-on-ubuntu)
 
 ### APIs
-- [Web Service API](https://github.com/oscurrency/oscurrency/wiki/Web-Service-API)
 - [OpenTransact](http://opentransact.org)
 
 ### FAQs
