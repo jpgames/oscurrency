@@ -18,9 +18,9 @@ module ActivitiesHelper
     when "Person"
       %(#{person_link(person)}#{t('shared.minifeed.description_changed')}.).html_safe
     when "Group"
-      %(#{person_link(person)} #{t('shared.minifeed.created_the_group')} '#{group_link(Group.find(activity.item))}').html_safe
+      %(#{person_link(person)} #{t('shared.minifeed.created_the_group')} '#{group_link(Group.find(activity.item.id))}').html_safe
     when "Membership"
-      %(#{person_link(person)} #{t('shared.minifeed.joined_the_group')} '#{group_link(Group.find(activity.item.group))}').html_safe
+      %(#{person_link(person)} #{t('shared.minifeed.joined_the_group')} '#{group_link(Group.find(activity.item.group.id))}').html_safe
     when "Req"
       req = activity.item
       %(#{person_link(person)} #{t('shared.minifeed.req_created')}: #{req_link(req.name, req)}.).html_safe
@@ -51,9 +51,9 @@ module ActivitiesHelper
     when "Person"
       %(#{h person.display_name}#{t('shared.minifeed.description_changed')}.).html_safe
     when "Group"
-      %(#{h person.display_name} #{t('shared.minifeed.created_the_group')} '#{group_link(Group.find(activity.item))}').html_safe
+      %(#{h person.display_name} #{t('shared.minifeed.created_the_group')} '#{group_link(Group.find(activity.item.id))}').html_safe
     when "Membership"
-      %(#{h person.display_name} #{t('shared.minifeed.joined_the_group')} '#{group_link(Group.find(activity.item.group))}').html_safe
+      %(#{h person.display_name} #{t('shared.minifeed.joined_the_group')} '#{group_link(Group.find(activity.item.group.id))}').html_safe
     when "Req"
       req = activity.item
       %(#{h person.display_name} #{t('shared.minifeed.req_created')}: #{req_link(req.name, req)}.).html_safe
