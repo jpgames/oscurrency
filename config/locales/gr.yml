@@ -256,6 +256,9 @@ gr:
       private_txns: "Private transactions"
       enable_forum: "Enable forum"
       default_member_roles: "Default Member Roles"
+      display_balance: "Display balance"
+      display_earned: "Display earned"
+      display_paid: "Display paid"
     members:
       pending_request: "Η Ζήτηση είναι σε εξέλιξη"
       cancel_membership: "Ακύρωση Συμμετοχής"

@@ -198,6 +198,9 @@ fr:
       private_txns: "Private transactions"
       enable_forum: "Enable forum"
       default_member_roles: "Default Member Roles"
+      display_balance: "Afficher le solde du compte"
+      display_earned: "Afficher les crédits gagnés"
+      display_paid: "Afficher les crédits payés"
     members:
       pending_request: "Pending request"                
       cancel_membership: "Canceller l’abonnement"
