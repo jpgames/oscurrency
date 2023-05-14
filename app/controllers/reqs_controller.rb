@@ -21,7 +21,7 @@ class ReqsController < ApplicationController
                               params[:page],
                               ajax_posts_per_page,
                               params[:search]
-                              ).order("reqs.updated_at desc")
+                              ).order(Arel.sql("CASE WHEN reqs.respond_by_date > '#{DateTime.now}' THEN respond_by_date ELSE NULL END"))
     else
       flash[:notice] = t('notice_member_to_view_requests')
       @reqs = Req.where('1=0').paginate(:page => 1, :per_page => ajax_posts_per_page)
