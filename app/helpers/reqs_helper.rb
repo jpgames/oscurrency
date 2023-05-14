@@ -2,7 +2,7 @@ module ReqsHelper
   def respond_by_date_expression(req)
     if req.respond_by_date?
       if req.respond_by_date > Time.now
-        " (Respond within #{time_ago_in_words(req.respond_by_date)})"
+        raw(" (Respond within <b>") + time_ago_in_words(req.respond_by_date) + raw("</b>)")
       else
         " (Respond by date passed #{relative_time_ago_in_words(req.respond_by_date)})"
       end
