@@ -26,14 +26,6 @@
       <%- else -%>
         <h3><%= t('bids.index.nobids') %></h3>
       <%- end %>
-      <h2><%= t('home._dashboard.offers') %></h2>
-      <%- if @your_offers.length > 0 %>
-        <ul class="list activity full">
-          <%= render :partial => '/offers/offer', :collection => @your_offers %>
-        </ul>
-      <%- else -%>
-        <h3><%= t('offers.index.nooffers') %></h3>
-      <%- end %>
       <h2><%= t('home._dashboard.requests') %></h2>
       <%- if @your_reqs.length > 0 %>
         <ul class="list activity full">
@@ -41,6 +33,14 @@
         </ul>
       <%- else -%>
         <h3><%= t('reqs.index.noreqs') %></h3>
+      <%- end %>
+      <h2><%= t('home._dashboard.offers') %></h2>
+      <%- if @your_offers.length > 0 %>
+        <ul class="list activity full">
+          <%= render :partial => '/offers/offer', :collection => @your_offers %>
+        </ul>
+      <%- else -%>
+        <h3><%= t('offers.index.nooffers') %></h3>
       <%- end %>
       <br />
 <%- end -%>
