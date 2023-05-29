@@ -205,7 +205,7 @@ module ApplicationHelper
       str = ""
     else
       credit_limit = account.credit_limit.nil? ? "" : "(limit: #{nice_decimal(account.credit_limit)})"
-      action = "#{metric} #{account.group.unit} #{credit_limit}"
+      action = "#{metric} #{account.group.unit.pluralize} #{credit_limit}"
       str = link_to(img,path, options)
       str << " #{label}: "
       str << link_to_unless_current(action, path, options)

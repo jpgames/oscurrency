@@ -25,7 +25,7 @@
     <%- end -%>
   <%- end -%>
   <p>
-  <%= h bid.unit %> <%= t('bid') %>: <%= h bid.estimated_hours %> - <%= t('bids.bid.expires') %> <%= relative_time_ago_in_words(bid.expiration_date) %>
+  <%= h bid.unit.pluralize %> <%= t('bid') %>: <%= h bid.estimated_hours %> - <%= t('bids.bid.expires') %> <%= relative_time_ago_in_words(bid.expiration_date) %>
   </p>
   <p class="meta">
   <% if bid.state != 'offered' %><%= t('bids.bid.accepted') %> <%= t( 'ago_time', :date => time_ago_in_words(bid.accepted_at)) -%> <br><% end %>   <%= t('bids.bid.submitted') %><% unless (dashboard rescue false) %><%= t('by') %> <%= person_link bid.person %><% end %>

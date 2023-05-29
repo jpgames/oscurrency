@@ -1,6 +1,6 @@
 <div class="span10">
   <% if @worker %>
-      <h2><%= t('transacts.new.header_simple') %> <%= h @amount %> <%= h @group.unit %> <%= t('to') %> <%= h @worker.name %> </h2> 
+      <h2><%= t('transacts.new.header_simple') %> <%= h @amount %> <%= h @group.unit.pluralize %> <%= t('to') %> <%= h @worker.name %> </h2> 
   <% else %>
     <h2><%= t('transacts.new.header') %></h2>
   <% end %>
@@ -19,7 +19,7 @@
       <div class="control-group">
         <label for="amount" class="control-label"><%= t('transacts.new.amount') %></label>
         <div class="controls">
-          <%= text_field_tag(:amount,params[:amount],:size => 3) %> <%= h @group.unit %>
+          <%= text_field_tag(:amount,params[:amount],:size => 3) %> <%= h @group.unit.pluralize %>
         </div>
       </div>
       <div class="control-group">
@@ -49,7 +49,7 @@
     <div class="control-group">
       <label for="amount" class="control-label"><%= t('transacts.new.amount') %></label>
       <div class="controls">
-        <%= text_field_tag(:amount,params[:amount],:size => 3) %> <%= h @group.unit %>
+        <%= text_field_tag(:amount,params[:amount],:size => 3) %> <%= h @group.unit.pluralize %>
       </div>
     </div>
     <div class="control-group">

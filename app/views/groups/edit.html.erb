@@ -19,7 +19,7 @@
           <div class="span3">
 
             <%- if @group.adhoc_currency? -%>
-              <%= f.text_field :unit, label: t('.currency_unit_plural'), class: "span3" %>
+              <%= f.text_field :unit, label: t('.currency_unit_singular'), class: "span3" %>
               <%= f.text_field :asset, disabled: !@group.asset.nil?, label: t('.asset'), class: "span3" %>
               <%= f.text_field :default_credit_limit, label: t('.default_credit_limit'), size: 5, class: "span3" %>
 

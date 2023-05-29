@@ -11,8 +11,8 @@
 <% if @account %>
   <h2>Edit account for <%= h @membership.person.display_name %></h2>
   <%= bootstrap_form_for @account, :url => person_account_path(@membership.person,@account), :html => {:method => :put} do |f| %>
-    <%= f.text_field :credit_limit, label: 'Credit Limit',:help => @account.group.unit || Group.find(global_prefs.default_group_id).unit, :size => 5 %>
-    <%= f.text_field :offset, label: 'Legacy Balance', :help => @account.group.unit || Group.find(global_prefs.default_group_id).unit, :size => 5 %>
+    <%= f.text_field :credit_limit, label: 'Credit Limit',:help => @account.group.unit.pluralize || Group.find(global_prefs.default_group_id).unit.pluralize, :size => 5 %>
+    <%= f.text_field :offset, label: 'Legacy Balance', :help => @account.group.unit.pluralize || Group.find(global_prefs.default_group_id).unit.pluralize, :size => 5 %>
     <%= f.control_group :reserve do %>
       <%= f.check_box :reserve, label: 'Reserve?' %>
     <% end %>

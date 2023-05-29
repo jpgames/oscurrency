@@ -144,7 +144,7 @@ class PersonMailer < ActionMailer::Base
     @req = req
     mail(:to => recipient.email,
          :from => "Request notification <request@#{domain}>",
-         :subject => formatted_subject("#{respond_by_date_expression(req.respond_by_date)}REQUEST: #{req.name} BID: #{req.estimated_hours} #{req.unit}")
+         :subject => formatted_subject("#{respond_by_date_expression(req.respond_by_date)}REQUEST: #{req.name} BID: #{req.estimated_hours} #{req.unit.pluralize}")
         )
   end
   

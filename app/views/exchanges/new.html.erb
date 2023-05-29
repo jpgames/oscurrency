@@ -9,7 +9,7 @@
     <%= form_for :exchange, :url => person_exchanges_path(@person) do |f| %>
       <div class="form_row">
         <%= f.label t('exchanges.new.amount') %>
-        <%= f.text_field :amount, :size => 2 %>&nbsp;<span id="units" class="small"><%= @groups[0].unit %></span>
+        <%= f.text_field :amount, :size => 2 %>&nbsp;<span id="units" class="small"><%= @groups[0].unit.pluralize %></span>
       </div>
 
         <div class="form_row">

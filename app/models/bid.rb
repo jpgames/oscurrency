@@ -71,7 +71,7 @@ class Bid < ActiveRecord::Base
   end
 
   def unit
-    group.try(:unit) || I18n.translate('currency_unit_plural')
+    group&.unit&.pluralize || I18n.translate('currency_unit_plural')
   end
 
   # private
