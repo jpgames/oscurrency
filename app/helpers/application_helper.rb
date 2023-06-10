@@ -124,6 +124,10 @@ module ApplicationHelper
     "<span id='units' class='small'>#{t('currency_unit_plural')}</span>".html_safe
   end
 
+  def default_group_currency_unit
+    Group.find(global_prefs.default_group_id).unit
+  end
+
   def menu_element(content, address)
     { :content => content, :href => address }
   end

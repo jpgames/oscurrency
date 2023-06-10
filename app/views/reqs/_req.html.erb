@@ -5,7 +5,7 @@
   </div>
   <p>
     <span class="btn btn-info btn-mini">#<%= req.id %></span>
-  <%= link_to h(req.name), req, :class => "show-follow" %> (<%= h  nice_decimal(req.estimated_hours)  %> <%= h req.unit.pluralize %>)
+  <%= link_to h(req.name), req, :class => "show-follow" %> (<%= h  nice_decimal(req.estimated_hours)  %> <%= h(req.unit&.pluralize || default_group_currency_unit.pluralize) %>)
   <%= t('reqs.partial.due') %>: <%= relative_time_ago_in_words(req.due_date) %><%= respond_by_date_expression(req) %>
   </p>
   <p>
