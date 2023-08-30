@@ -10,7 +10,7 @@
   </div>
 </div>
 <div class="span5">
-  <%= f.text_field :estimated_hours, :value=> nice_decimal(f.object.estimated_hours), :label => t('estimated') + ' ' + t('payment'), :help => @group.unit.pluralize || Group.find(global_prefs.default_group_id).unit.pluralize, :size => 5, :disabled => estimate_disabled %>
+  <%= f.text_field :estimated_hours, :value=> nice_decimal(f.object.estimated_hours), :label => t('estimated') + ' ' + t('payment'), :help => @group.unit&.pluralize || Group.find(global_prefs.default_group_id).unit.pluralize, :size => 5, :disabled => estimate_disabled %>
   <%= f.text_field :respond_by_date, :label => t('respond_by'), :size => 7 %>
   <%= f.text_field :due_date, :label => t('due_date'), :size => 7 %>
   <%= f.fields_for :photos do |i| %>

@@ -3,7 +3,7 @@
   function update_currency_units(i) {
     var group_units = {
       <%- @groups.each do |g| -%>
-        <%= "'#{g.id}': '#{h g.unit.pluralize}'," %> 
+        <%= "'#{g.id}': '#{h g.unit&.pluralize}'," %>
       <%- end -%>
     };
     elem = document.getElementById('units');
