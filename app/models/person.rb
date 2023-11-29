@@ -295,7 +295,7 @@ class Person < ActiveRecord::Base
   end
 
   def reqs_for_group(group)
-    reqs.biddable.where(group_id: group.id).order('created_at DESC')
+    reqs.biddable.where(group_id: group.id).order('due_date DESC')
   end
 
   def offers_for_group(group)
