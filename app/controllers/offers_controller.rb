@@ -19,7 +19,7 @@ class OffersController < ApplicationController
                                   params[:page],
                                   ajax_posts_per_page,
                                   params[:search]
-                                  ).order("offers.updated_at desc")
+                                  ).order("offers.expiration_date")
     else
       flash[:notice] = t('notice_member_to_view_offers')
       @offers = Offer.where('1=0').paginate(:page => 1, :per_page => ajax_posts_per_page)
