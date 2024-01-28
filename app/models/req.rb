@@ -76,7 +76,7 @@ class Req < ActiveRecord::Base
   end
 
   def notifiable_workers
-    workers.active.connection_notifications
+    workers.active.connection_notifications.uniq
   end
 
   def should_send_notifications?
