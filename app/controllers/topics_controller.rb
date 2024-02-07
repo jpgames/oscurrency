@@ -48,6 +48,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    @topic = Topic.find(params[:id])
     @topic.destroy
 
     respond_to do |format|
