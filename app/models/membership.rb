@@ -143,7 +143,8 @@ class Membership < ActiveRecord::Base
 
     def breakup(person, group)
       transaction do
-        destroy(mem(person, group))
+        m = mem(person, group)
+        m&.destroy
       end
     end
 
