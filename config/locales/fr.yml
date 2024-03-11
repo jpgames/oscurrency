@@ -744,7 +744,7 @@ fr:
   notice_updated_the_client_information_successfully: "La mise à jour des informations du client a réussie"
   notice_destroyed_the_client_application_registration: "La demande d’application du client a été détruite"
   notice_offer_updated: "L’offre a été mise à jour avec succès"
-  notice_thanks_for_signing_up_check_email: "Merci de vous être enregistré. Consultez votre courriel pour vérifier votre adresse de courriel"
+  notice_thanks_for_signing_up_check_email: "Pour terminer votre inscription, vérifiez vos dossiers BOÎTE DE RÉCEPTION (et SPAM) pour un e-mail de notre part. Cliquez sur le lien pour vérifier votre adresse e-mail. Merci!"
   notice_thanks_for_signing_u: "Merci de vous être enregistré."
   notice_post_updated: "Les entrées sont mises à jour"
   notice_request_updated: "Les requêtes sont mises à jour"

@@ -805,7 +805,7 @@ gr:
   notice_updated_the_client_information_successfully: "Οι πληροφορίες ενημερώθηκαν επιτυχώς"
   notice_destroyed_the_client_application_registration: "Η αίτηση εγγραφής διαγράφηκε"
   notice_offer_updated: "Η Προσφορά ενημερώθηκε επιτυχώς."
-  notice_thanks_for_signing_up_check_email: "Ευχαριστούμε για την εγγραφή! Ελέγξτε το email σας για να επαληθεύσετε την διεύθυνσή σας."
+  notice_thanks_for_signing_up_check_email: "Για να ολοκληρώσετε την εγγραφή σας, ελέγξτε τους φακέλους INBOX (και SPAM) του email σας για ένα email από εμάς. Κάντε κλικ στον σύνδεσμο για να επαληθεύσετε τη διεύθυνση email σας. Ευχαριστώ!"
   notice_thanks_for_signing_up: "Ευχαριστούμε για την εγγραφή!"
   notice_post_updated: "Η δημοσίευση ενημερώθηκε"
   notice_request_updated: "Η Ζήτηση ενημερώθηκε επιτυχώς."

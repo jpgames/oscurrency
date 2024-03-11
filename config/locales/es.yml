@@ -722,7 +722,7 @@ es:
   notice_updated_the_client_information_successfully: "Información del cliente actualizada satisfactoriamente"
   notice_destroyed_the_client_application_registration: "Se ha destruido el registro de la aplicación cliente"
   notice_offer_updated: "La oferta ha sido actualizada."
-  notice_thanks_for_signing_up_check_email: "Gracias por registrarte! Comprueba que te ha llegado un e-mail y verifica tu cuenta."
+  notice_thanks_for_signing_up_check_email: "Para completar su registro, revise las carpetas de su correo electrónico INBOX (y SPAM) para recibir un correo electrónico nuestro. Haga clic en el enlace para verificar su dirección de correo electrónico. ¡Gracias!"
   notice_thanks_for_signing_up: "Gracias por registrarte!"
   notice_post_updated: "Entrada actualizada"
   notice_request_updated: "La demanda ha sido actualizada."
