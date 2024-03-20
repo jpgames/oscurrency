@@ -46,8 +46,7 @@ class ExchangesController < ApplicationController
     end
 
     # XXX @groups not used in new ajax ui
-    @groups = @person.groups
-    @groups.to_a.delete_if {|g| !g.adhoc_currency?}
+    @groups = @person.groups.where(adhoc_currency: true)
 
     respond_to do |format|
       format.html
