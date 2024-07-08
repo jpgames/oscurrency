@@ -50,7 +50,7 @@ gem "cancancan", "1.16.0"
 gem "dalli", "2.7.6"
 gem "redcarpet"
 gem 'syck'
-gem 'rails_admin', '1.2.0'
+gem 'rails_admin', '2.3.0'
 gem 'safe_yaml'
 gem "ar_after_transaction"
 gem 'valid_email', :require => 'valid_email/email_validator'
