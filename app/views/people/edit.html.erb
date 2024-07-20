@@ -59,6 +59,9 @@
           <%= t('people.edit.email_notification_note') %>
         </p>
 
+        <%= f.control_group :connection_notifications do %>
+          <%= f.check_box :connection_notifications, label: t('people.edit.requests_in_my_service_categories')%>
+        <% end %>
         <%= f.control_group :message_notifications do %>
           <%= f.check_box :message_notifications, label: t('people.edit.messages')%>
         <% end %>

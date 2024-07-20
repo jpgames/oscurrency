@@ -6,7 +6,6 @@
 <h2><%= t('people.edit.email_notification_preferences') %></h2>
 <%= bootstrap_form_for @member_preference, :html => {:class => 'form-horizontal edit_member_preference'} do |f| %>
     <div style='padding-left:10px;'>
-      <%= f.check_box :req_notifications, label: t('people.edit.requests_in_my_service_categories') %>
       <%= f.check_box :forum_notifications, label: t('people.edit.forum_posts') %>
       <%= f.actions do %>
         <%= f.primary "Update" %><%= waiting_image %>
