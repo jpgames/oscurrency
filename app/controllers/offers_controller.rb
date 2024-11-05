@@ -75,6 +75,7 @@ class OffersController < ApplicationController
     @group = @offer.group
     @all_categories = Category.by_long_name
     @all_neighborhoods = Neighborhood.by_long_name
+    @selected_neighborhoods = @offer.neighborhoods
     @photo = @offer.photos.build if @offer.photos.blank?
     respond_to do |format|
       format.js {render :action => 'reject' if not request.xhr?}

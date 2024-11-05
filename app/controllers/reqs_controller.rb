@@ -71,6 +71,7 @@ class ReqsController < ApplicationController
     @group = @req.group
     @all_categories = Category.by_long_name
     @all_neighborhoods = Neighborhood.by_long_name
+    @selected_neighborhoods = @req.neighborhoods
     @photo = @req.photos.build if @req.photos.blank?
 
     respond_to do |format|

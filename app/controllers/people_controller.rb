@@ -50,6 +50,7 @@ class PeopleController < ApplicationController
     @person = Person.new
     @all_categories = Category.all_categories
     @all_neighborhoods = Neighborhood.all_neighborhoods
+    @selected_neighborhoods = []
     respond_to do |format|
       format.html
     end
@@ -111,6 +112,7 @@ class PeopleController < ApplicationController
     @category = Category.new
     @all_categories = Category.all_categories
     @all_neighborhoods = Neighborhood.all_neighborhoods
+    @selected_neighborhoods = current_person.neighborhoods
     respond_to do |format|
       format.html
     end
