@@ -64,6 +64,7 @@ class OffersController < ApplicationController
           flash[:notice] = t('success_offer_created')
           @offers = Offer.custom_search(nil,@group,active=true,page=1,ajax_posts_per_page,nil).order("updated_at desc")
         else
+          @selected_neighborhoods = current_person.neighborhoods
           @photo = @offer.photos.build if @offer.photos.blank?
           render :action => "new"
         end
@@ -96,6 +97,7 @@ class OffersController < ApplicationController
         format.js
         format.xml  { head :ok }
       else
+        @selected_neighborhoods = @offer.neighborhoods
         @photo = @offer.photos.build if @offer.photos.blank?
         #format.html { render :action => "edit" }
         format.js {render :action => 'edit'}

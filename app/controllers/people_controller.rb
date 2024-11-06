@@ -76,6 +76,7 @@ class PeopleController < ApplicationController
           @body = "register single-col"
           @all_categories = Category.all_categories
           @all_neighborhoods = Neighborhood.all_neighborhoods
+          @selected_neighborhoods = @person.neighborhoods
           render :action => 'new'
         end
       end
@@ -144,6 +145,7 @@ class PeopleController < ApplicationController
         else
           @all_categories = Category.all_categories
           @all_neighborhoods = Neighborhood.all_neighborhoods
+          @selected_neighborhoods = current_person.neighborhoods
           format.html { render :action => "edit" }
         end
       end
@@ -159,6 +161,7 @@ class PeopleController < ApplicationController
         else
           @all_categories = Category.all_categories
           @all_neighborhoods = Neighborhood.all_neighborhoods
+          @selected_neighborhoods = current_person.neighborhoods
           format.html { render :action => "edit" }
         end
       end
@@ -174,6 +177,7 @@ class PeopleController < ApplicationController
           else
             @all_categories = Category.all_categories
             @all_neighborhoods = Neighborhood.all_neighborhoods
+            @selected_neighborhoods = current_person.neighborhoods
             format.html { render :action => "edit" }
             format.js
           end

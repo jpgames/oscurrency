@@ -95,6 +95,7 @@ class ReqsController < ApplicationController
         format.js
         format.xml  { head :ok }
       else
+        @selected_neighborhoods = current_person.neighborhoods
         @photo = @req.photos.build if @req.photos.blank?
         flash[:error] = @req.errors.to_a.join(', ')
         format.html { render :action => "new" }
@@ -120,6 +121,7 @@ class ReqsController < ApplicationController
         format.js
         format.xml  { head :ok }
       else
+        @selected_neighborhoods = @req.neighborhoods
         @photo = @req.photos.build if @req.photos.blank?
         format.html { render :action => "edit" }
         format.js { render :action => "edit" }
