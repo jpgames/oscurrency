@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 ruby "2.5.9"
-gem 'rails', '5.1.5'
+gem 'rails', '5.1.7'
 gem 'responders'
 
 # Bundle edge Rails instead:
@@ -41,6 +41,7 @@ gem "carrierwave"
 gem "rmagick", '2.16.0'
 gem "json"
 gem "geokit-rails", "2.5.0"
+gem "i18n", "1.8.11" # carrierwave 2.2.3 does not like 1.9.x
 
 gem "will_paginate"
 gem "aasm", '3.0.19'
