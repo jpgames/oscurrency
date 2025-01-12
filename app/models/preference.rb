@@ -111,20 +111,4 @@ class Preference < ApplicationRecord
     end
 
   end
-
-  private
-    def decrypt(password)
-      k = LocalEncryptionKey.first
-      Crypto::Key.from_local_key_value(k.rsa_private_key).decrypt(password)
-    end
-
-    def self.encrypt(password)
-      k = LocalEncryptionKey.first
-      Crypto::Key.from_local_key_value(k.rsa_public_key).encrypt(password)
-    end
-
-    # Encrypts the password with the user salt
-    def encrypt(password)
-      self.class.encrypt(password)
-    end
 end

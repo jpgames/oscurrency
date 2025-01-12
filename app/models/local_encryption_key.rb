@@ -1,2 +1,0 @@
-class LocalEncryptionKey < ApplicationRecord
-end
