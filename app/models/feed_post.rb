@@ -1,7 +1,7 @@
 require 'feed-normalizer'
 require 'open-uri'
 
-class FeedPost < ActiveRecord::Base
+class FeedPost < ApplicationRecord
   extend PreferencesHelper
 
   class << self

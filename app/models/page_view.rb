@@ -14,6 +14,6 @@
 #
 
 # no longer used
-class PageView < ActiveRecord::Base
+class PageView < ApplicationRecord
   belongs_to :person
 end

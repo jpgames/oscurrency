@@ -1,4 +1,4 @@
-class OauthToken < ActiveRecord::Base
+class OauthToken < ApplicationRecord
   belongs_to :client_application
   belongs_to :person
   has_many :capabilities

@@ -1,4 +1,4 @@
-class Req < ActiveRecord::Base
+class Req < ApplicationRecord
   include ActivityLogger
   include AnnouncementBase
   include HasPhotos

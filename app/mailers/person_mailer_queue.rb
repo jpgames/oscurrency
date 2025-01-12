@@ -22,7 +22,7 @@ class PersonMailerQueue < GirlFriday::WorkQueue
   def self.method_missing(method, *args)
     return super(method, *args) unless PersonMailer.respond_to?(method)
     args = args.collect do |arg|
-      arg.is_a?(ActiveRecord::Base) ? arg.id : arg
+      arg.is_a?(ApplicationRecord) ? arg.id : arg
     end
     push :method => method, :args => args
   end

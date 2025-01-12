@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   include ActivityLogger
   has_many :activities, :as => :item, :dependent => :destroy
 

@@ -1,3 +1,3 @@
-class PrivacySetting < ActiveRecord::Base
+class PrivacySetting < ApplicationRecord
   belongs_to :group
 end

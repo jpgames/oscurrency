@@ -12,7 +12,7 @@
 #  updated_at :datetime        
 #
 
-class Activity < ActiveRecord::Base
+class Activity < ApplicationRecord
   extend PreferencesHelper
   belongs_to :person
   belongs_to :group

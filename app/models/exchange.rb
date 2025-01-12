@@ -13,7 +13,7 @@
 #  deleted_at  :time   
 #
 
-class Exchange < ActiveRecord::Base
+class Exchange < ApplicationRecord
   include ActivityLogger
   include ActionView::Helpers::NumberHelper
   acts_as_paranoid

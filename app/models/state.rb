@@ -10,6 +10,6 @@
 #  updated_at   :datetime        
 #
 
-class State < ActiveRecord::Base
+class State < ApplicationRecord
   has_many :addresses
 end

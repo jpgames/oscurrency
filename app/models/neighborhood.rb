@@ -1,4 +1,4 @@
-class Neighborhood < ActiveRecord::Base
+class Neighborhood < ApplicationRecord
   LONG_NAME_SEPARATOR = ":"
   validates_presence_of :name
   has_and_belongs_to_many :reqs, -> { order('created_at DESC') }

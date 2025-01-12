@@ -17,7 +17,7 @@
 #  updated_at   :datetime        
 #
 
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
   include ActivityLogger
   UPLOAD_LIMIT = 5 # megabytes
   

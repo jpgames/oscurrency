@@ -1,4 +1,4 @@
-class Capability < ActiveRecord::Base
+class Capability < ApplicationRecord
   belongs_to :group
   belongs_to :oauth_token
 

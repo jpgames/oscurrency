@@ -10,7 +10,7 @@
 #  updated_at :datetime
 #
 
-class BroadcastEmail < ActiveRecord::Base
+class BroadcastEmail < ApplicationRecord
 
   def spew
     peeps = Person.active.broadcast_email

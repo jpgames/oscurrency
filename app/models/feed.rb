@@ -8,7 +8,7 @@
 #  activity_id :integer(4)      
 #
 
-class Feed < ActiveRecord::Base
+class Feed < ApplicationRecord
   belongs_to :activity
   belongs_to :person
 end

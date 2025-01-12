@@ -1,4 +1,4 @@
-class Group < ActiveRecord::Base
+class Group < ApplicationRecord
   include ActivityLogger
   extend PreferencesHelper
   

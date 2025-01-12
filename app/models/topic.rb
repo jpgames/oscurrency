@@ -12,7 +12,7 @@
 #  updated_at        :datetime        
 #
 
-class Topic < ActiveRecord::Base
+class Topic < ApplicationRecord
   include ActivityLogger
   
   MAX_NAME = 100

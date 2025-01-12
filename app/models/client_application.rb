@@ -1,5 +1,5 @@
 require 'oauth'
-class ClientApplication < ActiveRecord::Base
+class ClientApplication < ApplicationRecord
   extend PreferencesHelper
 
   belongs_to :person

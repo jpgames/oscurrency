@@ -1,2 +1,2 @@
-class LocalEncryptionKey < ActiveRecord::Base
+class LocalEncryptionKey < ApplicationRecord
 end

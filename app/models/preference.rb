@@ -31,7 +31,7 @@
 #  crypted_twitter_oauth_consumer_secret :string(255)
 #  display_orgicon                       :boolean(1)      default(true)
 
-class Preference < ActiveRecord::Base
+class Preference < ApplicationRecord
   validate :enforce_singleton, :on => :create
 
   belongs_to :default_group, :class_name => "Group", :foreign_key => "default_group_id"

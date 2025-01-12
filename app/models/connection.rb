@@ -12,7 +12,7 @@
 #  updated_at  :datetime
 #
 
-class Connection < ActiveRecord::Base
+class Connection < ApplicationRecord
   extend ActivityLogger
   extend PreferencesHelper
 

@@ -19,7 +19,7 @@
 #  updated_at     :datetime        
 #
 
-class Address < ActiveRecord::Base
+class Address < ApplicationRecord
   belongs_to :person, :inverse_of => :addresses
   belongs_to :state
 

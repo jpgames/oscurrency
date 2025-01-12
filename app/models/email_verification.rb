@@ -10,7 +10,7 @@
 #  updated_at :datetime        
 #
 
-class EmailVerification < ActiveRecord::Base
+class EmailVerification < ApplicationRecord
   belongs_to :person
   validates_presence_of :person_id, :code
   before_validation :make_code, :on => :create

@@ -6,7 +6,7 @@
 #  id :integer(4)      not null, primary key
 #
 
-class Conversation < ActiveRecord::Base
+class Conversation < ApplicationRecord
   has_many :messages, -> { order("created_at DESC") }
 
   # current now, only offer will be as this field

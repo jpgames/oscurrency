@@ -11,7 +11,7 @@
 #  updated_at   :datetime        
 #
 
-class Forum < ActiveRecord::Base
+class Forum < ApplicationRecord
   belongs_to :group
   has_many :topics, -> { order("updated_at DESC") }, :dependent => :destroy
   has_many :posts, :through => :topics

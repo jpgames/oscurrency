@@ -20,5 +20,5 @@
 #  conversation_id      :integer(4)      
 #
 
-class Communication < ActiveRecord::Base
+class Communication < ApplicationRecord
 end

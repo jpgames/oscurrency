@@ -1,6 +1,6 @@
 require 'textacular'
 
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   include ActivityLogger
   extend PreferencesHelper
 

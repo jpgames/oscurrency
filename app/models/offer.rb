@@ -1,4 +1,4 @@
-class Offer < ActiveRecord::Base
+class Offer < ApplicationRecord
   include ActivityLogger
   include AnnouncementBase
   include HasPhotos

@@ -11,7 +11,7 @@
 #  updated_at :datetime        
 #
 
-class Account < ActiveRecord::Base
+class Account < ApplicationRecord
   extend PreferencesHelper
   belongs_to :person
   belongs_to :group

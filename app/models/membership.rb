@@ -1,6 +1,6 @@
 require 'will_paginate/array'
 
-class Membership < ActiveRecord::Base
+class Membership < ApplicationRecord
   extend ActivityLogger
   extend PreferencesHelper
 

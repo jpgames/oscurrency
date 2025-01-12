@@ -1,3 +1,3 @@
-class MemberPreference < ActiveRecord::Base
+class MemberPreference < ApplicationRecord
   belongs_to :membership
 end

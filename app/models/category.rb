@@ -1,4 +1,4 @@
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
   LONG_NAME_SEPARATOR = ":"
 
   validates_presence_of :name

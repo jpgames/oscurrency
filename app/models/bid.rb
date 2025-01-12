@@ -19,7 +19,7 @@
 #  rejected_at     :datetime
 #
 
-class Bid < ActiveRecord::Base
+class Bid < ApplicationRecord
   include Rails.application.routes.url_helpers
   include AASM
 
