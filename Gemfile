@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 
 source 'https://rubygems.org'
-ruby "2.5.9"
-gem 'rails', '5.1.7'
+ruby "2.7.7"
+gem 'rails', '5.2.8.1'
 gem 'responders'
 
 # Bundle edge Rails instead:
@@ -28,7 +28,7 @@ gem "uuid"
 # gem 'jquery-rails'
 
 #gem "rack", '= 1.2.2'   #Heroku seems to force this
-gem 'dynamic_form'
+gem 'dynamic_form', '1.1.4'
 gem "oauth", '0.4.4'
 
 gem "feed-normalizer"
@@ -43,9 +43,9 @@ gem "json"
 gem "geokit-rails", "2.5.0"
 gem "i18n", "1.8.11" # carrierwave 2.2.3 does not like 1.9.x
 
-gem "will_paginate"
+gem "will_paginate", '3.3.1'
 gem "aasm", '3.0.19'
-gem "authlogic", '3.6.1'
+gem "authlogic", '4.0.1'
 gem "scrypt"
 gem "cancancan", "1.16.0"
 gem "dalli", "2.7.6"
@@ -59,6 +59,9 @@ gem "calendar_helper"
 #gem "gibbon", :git => "git://github.com/amro/gibbon.git"
 gem "bootstrap_form", git: 'https://github.com/herestomwiththeweather/bootstrap_form.git', branch: 'v1_0_patch_for_rails4_2'
 gem 'test-unit'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '1.10.0', require: false
 
 group :development, :test do
   gem 'dotenv-rails'

@@ -10,7 +10,7 @@ class PersonSessionsController < ApplicationController
 
 
   def create
-    @person_session = PersonSession.new(person_session_params)
+    @person_session = PersonSession.new(person_session_params.to_h)
     @person_session.save do |result|
       if result
         unless params[:person_session].nil?

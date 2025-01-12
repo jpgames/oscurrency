@@ -140,29 +140,29 @@ describe Person do
 
   describe "mostly active" do
     it "should include a recently logged-in person" do
-      expect(Person.mostly_active).to contain(@person)
+      expect(Person.mostly_active).to include(@person)
     end
 
     pending "should not include a deactivated person" do
       @person.toggle!(:deactivated)
-      expect(Person.mostly_active).to_not contain(@person)
+      expect(Person.mostly_active).to_not include(@person)
     end
 
     pending "should not include an email unverified person" do
       enable_email_notifications
       @person.email_verified = false; @person.save!
-      expect(Person.mostly_active).to_not contain(@person)
+      expect(Person.mostly_active).to_not include(@person)
     end
 
     it "should not include a person who has never logged in" do
       @person.last_logged_in_at = nil; @person.save
-      expect(Person.mostly_active).to_not contain(@person)
+      expect(Person.mostly_active).to_not include(@person)
     end
 
     it "should not include a person who logged in too long ago" do
       @person.last_logged_in_at = Person::TIME_AGO_FOR_MOSTLY_ACTIVE.ago - 1
       @person.save
-      expect(Person.mostly_active).to_not contain(@person)
+      expect(Person.mostly_active).to_not include(@person)
     end
   end
 
@@ -188,13 +188,13 @@ describe Person do
   describe "active class methods" do
     it "should not return deactivated people" do
       @person.toggle!(:deactivated)
-      expect(Person.active).to_not contain(@person)
+      expect(Person.active).to_not include(@person)
     end
 
     pending "should not return email unverified people" do
       @person.email_verified = false
       @person.save!
-      expect(Person.active).to_not contain(@person)
+      expect(Person.active).to_not include(@person)
     end
   end
 
@@ -204,7 +204,7 @@ describe Person do
       @person.default_group_id = group.id
       @person.save
       pseudo_req = create_request_like(@person, group, false)
-      expect(@person.reqs_for_group(group)).to_not contain(pseudo_req)
+      expect(@person.reqs_for_group(group)).to_not include(pseudo_req)
     end
 
     it "should include real requests" do
@@ -212,7 +212,7 @@ describe Person do
       @person.default_group_id = group.id
       @person.save
       real_req = create_request_like(@person, group, true)
-      expect(@person.reqs_for_group(group)).to contain(real_req)
+      expect(@person.reqs_for_group(group)).to include(real_req)
     end
   end
 

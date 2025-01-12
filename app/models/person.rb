@@ -7,7 +7,6 @@ class Person < ActiveRecord::Base
   acts_as_authentic do |c|
     c.crypto_provider = Authlogic::CryptoProviders.const_get(ENV['CRYPTOPROVIDER'].to_sym) unless ENV['CRYPTOPROVIDER'].blank?
     c.perishable_token_valid_for = 48.hours
-    c.maintain_sessions = false if Rails.env == "test"
     c.merge_validates_length_of_password_field_options :minimum => 4
   end
 
