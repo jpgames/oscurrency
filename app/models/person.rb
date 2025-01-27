@@ -7,11 +7,11 @@ class Person < ApplicationRecord
   acts_as_authentic do |c|
     c.crypto_provider = Authlogic::CryptoProviders.const_get(ENV['CRYPTOPROVIDER'].to_sym) unless ENV['CRYPTOPROVIDER'].blank?
     c.perishable_token_valid_for = 48.hours
-    c.merge_validates_length_of_password_field_options :minimum => 4
   end
 
   #  attr_accessor :password, :verify_password, :new_password, :password_confirmation
   attr_accessor :sorted_photos, :accept_agreement
+  attr_accessor :password_confirmation
 
   MAX_PASSWORD = 40
   MAX_NAME = 40
@@ -111,6 +111,7 @@ class Person < ApplicationRecord
   validates :business_name, :length => { :maximum => 100 }, :presence => true, :if => lambda { |p| p.org }
   validates :legal_business_name, :length => { :maximum => 100 }
   validates :business_type, :presence => true, :if => lambda { |p| p.org }
+  validates :password, :length => { :minimum => 4 }
   #  validates_presence_of     :password,              :if => :password_required?
   #  validates_presence_of     :password_confirmation, :if => :password_required?
   #  validates_length_of       :password, :within => 4..MAX_PASSWORD,

@@ -9,7 +9,7 @@ class Ability
     can :unsu, Person
 
     if person.admin?
-      can :dashboard
+      can :read, :dashboard
     end
 
     # need these for rails_admin

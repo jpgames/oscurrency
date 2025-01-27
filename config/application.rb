@@ -18,6 +18,8 @@ module Oscurrency
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W( #{config.root}/lib )
 
+    config.action_dispatch.use_cookies_with_metadata = false
+
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -49,6 +51,8 @@ module Oscurrency
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.active_record.belongs_to_required_by_default = false
 
     #require 'oauth/rack/oauth_filter'
     #config.middleware.use OAuth::Rack::OAuthFilter

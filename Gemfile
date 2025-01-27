@@ -2,20 +2,21 @@
 
 source 'https://rubygems.org'
 ruby "2.7.7"
-gem 'rails', '5.2.8.1'
+gem 'rails', '6.0.0'
 gem 'responders'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'pg', '0.19.0'
+gem 'pg'
 gem "unicorn"
 gem "girl_friday"
 gem "exception_notification"
 gem "kgio"
 gem "raindrops"
 gem "unf"
+gem "concurrent-ruby", "1.3.4"
 
-gem "sass-rails", '5.0.6'
+gem "sass-rails", '5.0.8'
 gem "uglifier", '>=1.3.0'
 # gem 'jquery-ui-rails'
 
@@ -45,13 +46,13 @@ gem "i18n", "1.8.11" # carrierwave 2.2.3 does not like 1.9.x
 
 gem "will_paginate", '3.3.1'
 gem "aasm", '3.0.19'
-gem "authlogic", '4.0.1'
+gem "authlogic", '5.2.0'
 gem "scrypt"
-gem "cancancan", "1.16.0"
+gem "cancancan", "3.0.2"
 gem "dalli", "2.7.6"
 gem "redcarpet"
 gem 'syck'
-gem 'rails_admin', '1.2.0'
+gem 'rails_admin', '2.0.2'
 gem 'safe_yaml'
 gem "ar_after_transaction"
 gem 'valid_email', :require => 'valid_email/email_validator'
