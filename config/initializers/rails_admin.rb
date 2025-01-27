@@ -19,7 +19,7 @@ end
 
   config.parent_controller = "::ApplicationController"
   config.current_user_method { current_person } #auto-generated
-  config.authorize_with :cancan
+  config.authorize_with :cancancan
   config.authenticate_with {
     unless current_person
       session[:return_to] = request.url

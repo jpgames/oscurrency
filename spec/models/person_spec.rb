@@ -107,6 +107,7 @@ describe Person do
     it "should hide and show connected requests after deactivation and then activation of user" do
       group = created_group_id(@person)
       @person.default_group_id = group.id
+      @person.password = '1234'
       @person.save
       create_request_like(@person, group)
 
@@ -123,6 +124,7 @@ describe Person do
     it "should hide and show connected offers after deactivation and then activation of user" do
       group = created_group_id(@person)
       @person.default_group_id = group.id
+      @person.password = '1234'
       @person.save
       create_offer_like(@person, group)
 
@@ -150,16 +152,19 @@ describe Person do
 
     pending "should not include an email unverified person" do
       enable_email_notifications
+      @person.password = '1234'
       @person.email_verified = false; @person.save!
       expect(Person.mostly_active).to_not include(@person)
     end
 
     it "should not include a person who has never logged in" do
+      @person.password = '1234'
       @person.last_logged_in_at = nil; @person.save
       expect(Person.mostly_active).to_not include(@person)
     end
 
     it "should not include a person who logged in too long ago" do
+      @person.password = '1234'
       @person.last_logged_in_at = Person::TIME_AGO_FOR_MOSTLY_ACTIVE.ago - 1
       @person.save
       expect(Person.mostly_active).to_not include(@person)
@@ -193,6 +198,7 @@ describe Person do
 
     pending "should not return email unverified people" do
       @person.email_verified = false
+      @person.password = '1234'
       @person.save!
       expect(Person.active).to_not include(@person)
     end
