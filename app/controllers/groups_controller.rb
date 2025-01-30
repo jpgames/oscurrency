@@ -74,7 +74,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     respond_to do |format|
-      if @group.update_attributes(group_params)
+      if @group.update(group_params)
         flash[:notice] = t('notice_group_updated')
         format.html { redirect_to(group_path(@group)) }
       else

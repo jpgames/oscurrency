@@ -5,7 +5,7 @@ class Person < ApplicationRecord
   extend PreferencesHelper
 
   acts_as_authentic do |c|
-    c.crypto_provider = Authlogic::CryptoProviders.const_get(ENV['CRYPTOPROVIDER'].to_sym) unless ENV['CRYPTOPROVIDER'].blank?
+    c.crypto_provider = ENV['CRYPTOPROVIDER'].present? ? Authlogic::CryptoProviders.const_get(ENV['CRYPTOPROVIDER'].to_sym) : Authlogic::CryptoProviders::SCrypt
     c.perishable_token_valid_for = 48.hours
   end
 

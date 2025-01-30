@@ -1,4 +1,5 @@
 unless Rails.env == 'test'
+Rails.configuration.to_prepare do
 require Rails.root.join('lib', 'rails_admin_send_broadcast_email.rb')
 require Rails.root.join('lib', 'rails_admin_add_to_mailchimp_list.rb')
 require Rails.root.join('lib', 'rails_admin_list_scope.rb')
@@ -632,5 +633,5 @@ end
   end
 
 end
-
+end
 end

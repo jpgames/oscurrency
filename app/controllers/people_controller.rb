@@ -129,7 +129,7 @@ class PeopleController < ApplicationController
     unless(params[:task].blank?)
       @person.toggle!(params[:task])
       if 'deactivated' == params[:task]
-        @person.update_attributes!(:sponsor => current_person)
+        @person.update!(:sponsor => current_person)
       end
       flash[:success] = "#{CGI.escapeHTML @person.display_name} " + t('success_updated')
       redirect_to person_path(@person)
@@ -139,7 +139,7 @@ class PeopleController < ApplicationController
     case params[:type]
     when 'info_edit'
       respond_to do |format|
-        if @person.update_attributes(person_params)
+        if @person.update(person_params)
           flash[:success] = t('success_profile_updated')
           format.html { redirect_to(@person) }
         else

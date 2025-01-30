@@ -57,8 +57,8 @@ class PhotosController < ApplicationController
     @old_primary = current_person.photos.select(&:primary?)
   
     respond_to do |format|
-      if @photo.update_attributes(:primary => true)
-        @old_primary.each { |p| p.update_attributes!(:primary => false) }
+      if @photo.update(:primary => true)
+        @old_primary.each { |p| p.update!(:primary => false) }
         format.html { redirect_to(edit_person_path(current_person)) }
       else    
         format.html do
@@ -74,7 +74,7 @@ class PhotosController < ApplicationController
     if @photo.primary?
       first_non_primary = current_person.photos.reject(&:primary?).first
       unless first_non_primary.nil?
-        first_non_primary.update_attributes!(:primary => true)
+        first_non_primary.update!(:primary => true)
       end
     end
     @photo.destroy
@@ -89,7 +89,7 @@ class PhotosController < ApplicationController
   end
 
   def update_default_profile_picture
-    if @photo.update_attributes(photo_params)
+    if @photo.update(photo_params)
       redirect_to default_profile_picture_photos_url
     else
       format.html do
@@ -104,7 +104,7 @@ class PhotosController < ApplicationController
   end
 
   def update_default_group_picture
-    if @photo.update_attributes(photo_params)
+    if @photo.update(photo_params)
       redirect_to default_group_picture_photos_url
     else
       format.html do

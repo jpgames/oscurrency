@@ -117,7 +117,7 @@ class Connection < ApplicationRecord
     # Update the db with one side of an accepted connection request.
     def accept_one_side(person, contact, accepted_at)
       conn = conn(person, contact)
-      conn.update_attributes!(:status => ACCEPTED,
+      conn.update!(:status => ACCEPTED,
                               :accepted_at => accepted_at)
     end
 

@@ -48,7 +48,7 @@ class Req < ApplicationRecord
   end
 
   def deactivate
-    update_attributes(:active => false)
+    update(:active => false)
   end
 
   def has_accepted_bid?

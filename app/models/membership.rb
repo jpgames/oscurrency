@@ -9,7 +9,7 @@ class Membership < ApplicationRecord
   scope :verified, -> { includes(:person).where('people.email_verified' => true) if global_prefs.email_verifications? }
   scope :accepted, -> { where(status: Membership::ACCEPTED) }
   scope :listening, -> { includes(:member_preference, :person).where('people.deactivated' => false, 'member_preferences.forum_notifications' => true) }
-  scope :order_by_name, -> { order("lower((case when people.business_name is null then '' else people.business_name end) || people.name) ASC") }
+  scope :order_by_name, -> { order(Arel.sql("lower((case when people.business_name is null then '' else people.business_name end) || people.name) ASC")) }
 
   belongs_to :group
   belongs_to :person

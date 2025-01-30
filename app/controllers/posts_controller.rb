@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @post.update_attributes(post_params)
+      if @post.update(post_params)
         flash[:notice] = t('notice_post_updated')
         format.html { redirect_to forum_topic_url(@forum, @topic, :posts => @topic.posts.count) }
       else

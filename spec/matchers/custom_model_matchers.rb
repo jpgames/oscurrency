@@ -11,8 +11,8 @@ module CustomModelMatchers
       @model = model
       just_right = model
       too_long   = model.clone
-      just_right.update_attributes(@attribute => "a" * @maxlength)
-      too_long.update_attributes(@attribute => "a" * (@maxlength + 1))
+      just_right.update(@attribute => "a" * @maxlength)
+      too_long.update(@attribute => "a" * (@maxlength + 1))
       just_right.valid? and not too_long.valid?
     end
     

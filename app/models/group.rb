@@ -180,7 +180,7 @@ class Group < ApplicationRecord
     if default_credit_limit_changed?
       transaction do
         memberships.each do |m|
-          m.account.update_attributes!(:credit_limit => default_credit_limit)
+          m.account.update!(:credit_limit => default_credit_limit)
         end
       end
     end

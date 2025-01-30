@@ -21,3 +21,7 @@ module RailsAdmin
     end
   end
 end
+
+# make zeitwerk happy
+module RailsAdminListScope
+end

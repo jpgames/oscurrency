@@ -29,7 +29,7 @@ class MemberPreferencesController < ApplicationController
     @group = @member_preference.membership.group
 
     respond_to do |format|
-      if @member_preference.update_attributes(member_preference_params)
+      if @member_preference.update(member_preference_params)
         flash[:success] = t('success_preferences_updated')
         format.js
       else

@@ -8,7 +8,7 @@ class AccountsController < ApplicationController
 
   def update
     @account = Account.find(params[:account_id])
-    if @account.update_attributes(account_params)
+    if @account.update(account_params)
       flash[:success] = t('success_account_updated')
       redirect_to(edit_membership_path(@account.membership))
     else

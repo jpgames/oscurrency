@@ -1,4 +1,5 @@
 begin
+Rails.configuration.to_prepare do
   unless Rails.env.test?
     global_prefs = Preference.first
     if global_prefs.using_email?
@@ -17,7 +18,7 @@ begin
       ActionMailer::Base.default_url_options[:host] = global_prefs.server_name
     end
   end
-
+end
 rescue
   # Rescue from the error raised upon first migrating
   # (needed to bootstrap the preferences).

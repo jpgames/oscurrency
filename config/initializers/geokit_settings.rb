@@ -1,6 +1,8 @@
 begin
   unless Rails.env.test?
-    global_prefs = Preference.find(:first)
+Rails.configuration.to_prepare do
+    global_prefs = Preference.first
+end
     Geokit::Geocoders::GoogleGeocoder.api_key = global_prefs.googlemap_api_key
 
     # These defaults are used in GeoKit::Mappable.distance_to and in acts_as_mappable

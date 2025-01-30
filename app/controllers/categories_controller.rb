@@ -72,7 +72,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     respond_to do |format|
-      if can?(:update, @category) && @category.update_attributes(category_params)
+      if can?(:update, @category) && @category.update(category_params)
         flash[:notice] = t('notice_category_updated')
         format.html { redirect_to(@category) }
         format.xml  { head :ok }

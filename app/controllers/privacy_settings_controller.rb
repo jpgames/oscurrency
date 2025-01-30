@@ -4,7 +4,7 @@ class PrivacySettingsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @privacy_setting.update_attributes(privacy_setting_params)
+      if @privacy_setting.update(privacy_setting_params)
         flash[:notice] = t('notice_privacy_settings_updated')
         format.js
       else

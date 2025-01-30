@@ -90,7 +90,7 @@ class OffersController < ApplicationController
     @all_neighborhoods = Neighborhood.by_long_name
 
     respond_to do |format|
-      if @offer.update_attributes(offer_params)
+      if @offer.update(offer_params)
         flash[:notice] = t('notice_offer_updated')
         @offers = Offer.custom_search(nil,@group,active=true,page=1,ajax_posts_per_page,nil).order("updated_at desc")
         #format.html { redirect_to(@offer) }

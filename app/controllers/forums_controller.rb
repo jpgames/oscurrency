@@ -21,7 +21,7 @@ class ForumsController < ApplicationController
   def update
     @forum = Forum.find(params[:id])
     respond_to do |format|
-      if @forum.update_attributes(forum_params)
+      if @forum.update(forum_params)
         flash[:notice] = t('notice_forum_updated')
         format.js
       else
