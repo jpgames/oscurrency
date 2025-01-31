@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 ruby "2.7.7"
-gem 'rails', '6.0.0'
+gem 'rails', '6.1.0'
 gem 'responders'
 
 # Bundle edge Rails instead:
@@ -46,7 +46,7 @@ gem "i18n", "1.8.11" # carrierwave 2.2.3 does not like 1.9.x
 
 gem "will_paginate", '3.3.1'
 gem "aasm", '3.0.19'
-gem "authlogic", '5.2.0'
+gem "authlogic", '6.3.0'
 gem "scrypt"
 gem "cancancan", "3.0.2"
 gem "dalli", "2.7.6"
