@@ -1,6 +1,6 @@
 ### Quick Facts
-- ruby 2.7.7
-- rails 5.2.8.1
+- ruby 3.1.0
+- rails 6.1.7.10
 - heroku deployment
 - [Issues](https://github.com/bace/oscurrency/issues)
 - [Contributors](https://github.com/bace/oscurrency/graphs/contributors)
