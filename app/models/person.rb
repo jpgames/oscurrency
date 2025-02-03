@@ -111,7 +111,7 @@ class Person < ApplicationRecord
   validates :business_name, :length => { :maximum => 100 }, :presence => true, :if => lambda { |p| p.org }
   validates :legal_business_name, :length => { :maximum => 100 }
   validates :business_type, :presence => true, :if => lambda { |p| p.org }
-  validates :password, :length => { :minimum => 4 }
+  validates :password, :length => { :minimum => 4, :if => :require_password? }, :confirmation => { :if => :require_password? }
   #  validates_presence_of     :password,              :if => :password_required?
   #  validates_presence_of     :password_confirmation, :if => :password_required?
   #  validates_length_of       :password, :within => 4..MAX_PASSWORD,

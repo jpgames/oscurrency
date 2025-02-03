@@ -113,6 +113,7 @@ Rails.application.routes.draw do
   get '/signup' => 'people#new', :as => :signup
   get '/login' => 'person_sessions#new', :as => :login
   get '/logout' => 'person_sessions#destroy', :as => :logout
+  delete '/logout' => 'person_sessions#destroy', :as => :logout_delete
   get '/refreshblog' => 'feed_posts#refresh_blog', :as => :refreshblog
   get '/about' => 'home#about', :as => :about
   get '/practice' => 'home#practice', :as => :practice

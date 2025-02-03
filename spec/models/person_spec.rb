@@ -13,22 +13,34 @@ describe Person do
 
     it 'requires password' do
       p = create_person(:password => nil)
-      expect(p.errors[:password]).to_not be_nil
+      expect(p.errors[:password]).to_not be_blank
     end
 
     it 'requires password confirmation' do
-      p = create_person(:password_confirmation => nil)
-      expect(p.errors[:password_confirmation]).to_not be_nil
+      p = create_person(:password_confirmation => '')
+      expect(p.errors[:password_confirmation]).to_not be_blank
+    end
+
+    it 'should not allow a password with 3 characters' do
+      password_params = {password: 'aaa', password_confirmation: 'aaa'}
+      p = create_person(password_params)
+      expect(p.errors[:password]).to_not be_blank
+    end
+
+    it 'should allow a password with 4 characters' do
+      password_params = {password: 'aaaa', password_confirmation: 'aaaa'}
+      p = create_person(password_params)
+      expect(p.errors[:password]).to be_blank
     end
 
     it 'requires email' do
       p = create_person(:email => nil)
-      expect(p.errors[:email]).to_not be_nil
+      expect(p.errors[:email]).to_not be_blank
     end
 
     it "should require name" do
       p = create_person(:name => nil)
-      expect(p.errors[:name]).to_not be_nil
+      expect(p.errors[:name]).to_not be_blank
     end
 
     it "should strip spaces in email field" do

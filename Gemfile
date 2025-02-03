@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 
 source 'https://rubygems.org'
-ruby "2.7.7"
-gem 'rails', '6.1.0'
+ruby "3.1.0"
+gem 'rails', '6.1.7.10'
 gem 'responders'
 
 # Bundle edge Rails instead:
@@ -15,6 +15,8 @@ gem "kgio"
 gem "raindrops"
 gem "unf"
 gem "concurrent-ruby", "1.3.4"
+gem "rss"
+gem "mimemagic", "0.3.8"
 
 gem "sass-rails", '5.0.8'
 gem "uglifier", '>=1.3.0'
@@ -52,7 +54,7 @@ gem "cancancan", "3.0.2"
 gem "dalli", "2.7.6"
 gem "redcarpet"
 gem 'syck'
-gem 'rails_admin', '2.0.2'
+gem 'rails_admin', '2.3.1'
 gem 'safe_yaml'
 gem "ar_after_transaction"
 gem 'valid_email', :require => 'valid_email/email_validator'
