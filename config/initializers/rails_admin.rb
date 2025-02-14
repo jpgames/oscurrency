@@ -1,7 +1,6 @@
 unless Rails.env == 'test'
 Rails.configuration.to_prepare do
 require Rails.root.join('lib', 'rails_admin_send_broadcast_email.rb')
-require Rails.root.join('lib', 'rails_admin_add_to_mailchimp_list.rb')
 require Rails.root.join('lib', 'rails_admin_list_scope.rb')
 
 RailsAdmin.config do |config|
@@ -9,9 +8,6 @@ module RailsAdmin
   module Config
     module Actions
       class SendBroadcastEmail < RailsAdmin::Config::Actions::Base
-        RailsAdmin::Config::Actions.register(self)
-      end
-      class AddToMailchimpList < RailsAdmin::Config::Actions::Base
         RailsAdmin::Config::Actions.register(self)
       end
     end
@@ -33,7 +29,6 @@ end
     index
     new
     send_broadcast_email
-    add_to_mailchimp_list
     show
     edit
     delete
@@ -292,10 +287,6 @@ end
       field :public_private_bid do
         label "Public/Private Bids"
       end
-      field :mailchimp_list_id do
-        label "Mailchimp List ID"
-      end
-      field :mailchimp_send_welcome
       field :registration_intro
       field :agreement
       field :about
@@ -502,7 +493,6 @@ end
       field :phone
       field :admin
       field :org
-      field :mailchimp_subscribed
       field :openid_identifier
       sort_by :last_logged_in_at
     end

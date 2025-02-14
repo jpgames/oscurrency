@@ -31,15 +31,12 @@ class Activity < ApplicationRecord
       end
     end
 
-    def global_feed
-      joins(:person).
+    def group_feed(group_id)
+      includes([:person,:group]).
       where(_person_active).
+      where(:group_id => group_id).
       order('activities.created_at DESC').
       limit(GLOBAL_FEED_SIZE)
-    end
-
-    def group_feed(group_id)
-      global_feed.where(:group_id => group_id)
     end
 
     def exchange_feed

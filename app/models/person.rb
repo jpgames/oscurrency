@@ -172,14 +172,7 @@ class Person < ApplicationRecord
 
   # Return a person-specific activity feed.
   def feed
-    len = activities.length
-    if len < FEED_SIZE
-      # Mix in some global activities for smaller feeds.
-      global = Activity.global_feed[0...(Activity::GLOBAL_FEED_SIZE-len)]
-      (activities + global).uniq.sort_by { |a| a.created_at }.reverse
-    else
-      activities
-    end
+    activities
   end
 
   def recent_activity
@@ -295,15 +288,15 @@ class Person < ApplicationRecord
   end
 
   def reqs_for_group(group)
-    reqs.biddable.where(group_id: group.id).order('due_date DESC')
+    reqs.biddable.where(group_id: group.id).includes([:group,:approved_bids,:completed_bids,:committed_bids,:accepted_bids,:categories]).order('due_date DESC')
   end
 
   def offers_for_group(group)
-    offers.where(group_id: group.id).order('created_at DESC')
+    offers.where(group_id: group.id).includes([:group,:exchanges,:categories]).order('created_at DESC')
   end
 
   def bids_for_group(group)
-    bids.where(group_id: group.id).order('created_at DESC')
+    bids.where(group_id: group.id).includes([:group, req: :person]).order('created_at DESC')
   end
 
   def current_and_active_bids

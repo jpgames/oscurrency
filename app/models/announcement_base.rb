@@ -74,7 +74,7 @@ module AnnouncementBase
   end
 
   def long_categories
-    categories.map {|cat| cat.long_name }
+    categories.includes(:parent).map {|cat| cat.long_name }
   end
 
   def log_activity

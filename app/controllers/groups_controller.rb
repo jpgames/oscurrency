@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
 
     if membership
       if @group.adhoc_currency?
-        @transactions = current_person.transactions.where(group_id: @group.id).limit(3)
+        @transactions = current_person.transactions.where(group_id: @group.id).includes([:worker,:customer,:group,:metadata]).limit(3)
       end
       @your_offers = current_person.offers_for_group(@group)
       @your_reqs = current_person.reqs_for_group(@group)

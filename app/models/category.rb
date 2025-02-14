@@ -12,7 +12,7 @@ class Category < ApplicationRecord
   end
 
   def self.root_nodes
-    where(:parent_id => nil).order(:name)
+    where(:parent_id => nil).includes([:offers, :people, :children]).order(:name)
   end
 
   def self.searchable_columns
