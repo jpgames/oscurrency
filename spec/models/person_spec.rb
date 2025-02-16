@@ -51,6 +51,12 @@ describe Person do
       p = create_person(:description => nil)
       expect(p).to be_valid
     end
+
+    it 'should not allow an openid_identifier' do
+      openid_params = {openid_identifier: 'aaa'}
+      p = create_person(openid_params)
+      expect(p.errors[:name]).to_not be_blank
+    end
   end
 
   describe "utility methods" do
