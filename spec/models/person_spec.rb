@@ -57,6 +57,18 @@ describe Person do
       p = create_person(openid_params)
       expect(p.errors[:name]).to_not be_blank
     end
+
+    it 'should not allow a business_name with an empty description' do
+      bot_params = {business_name: 'aaa', description: ''}
+      p = create_person(bot_params)
+      expect(p.errors[:name]).to_not be_blank
+    end
+
+    it 'should allow a business_name with a description' do
+      bot_params = {business_name: 'aaa', description: 'bbb'}
+      p = create_person(bot_params)
+      expect(p).to be_valid
+    end
   end
 
   describe "utility methods" do

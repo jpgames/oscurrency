@@ -434,10 +434,14 @@ class Person < ApplicationRecord
 
   ## Callbacks
 
+  def bot?
+    openid_identifier.present? || (business_name.present? && description.blank?)
+  end
+
   # bots are populating openid_identifier even though it is not visibly present. create an unrelated validation error in this case.
   def check_for_bot
     if new_record?
-      self.name = '' if openid_identifier.present?
+      self.name = '' if bot?
     end
   end
 
