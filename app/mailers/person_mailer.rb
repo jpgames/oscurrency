@@ -16,7 +16,7 @@ class PersonMailer < ActionMailer::Base
     @server_name = server
     @person = person
 
-    @url = person_path(person)
+    @url = person_url(person)
     mail(:to => recipients_of_registration_notifications,
          :from => "Deactivation notification <deactivation@#{domain}>",
          :subject => formatted_subject("Account Deactivation")
@@ -47,7 +47,7 @@ class PersonMailer < ActionMailer::Base
     membership = coerce(membership, Membership)
     @membership = membership
     @server = server
-    @url = members_group_path(membership.group)
+    @url = members_group_url(membership.group)
     @preferences_note = preferences_note(membership.group.owner)
     mail(:to => membership.group.admins.map {|m| m.email},
          :from => "Membership done <membership@#{domain}>",
@@ -59,7 +59,7 @@ class PersonMailer < ActionMailer::Base
     membership = coerce(membership, Membership)
     @membership = membership
     @server = server
-    @url = members_group_path(membership.group)
+    @url = members_group_url(membership.group)
     @preferences_note = preferences_note(membership.group.owner)
     mail(:to => membership.group.admins.map {|m| m.email},
          :from => "Membership request <membership@#{domain}>",
@@ -71,7 +71,7 @@ class PersonMailer < ActionMailer::Base
     membership = coerce(membership, Membership)
     @membership = membership
     @server = server
-    @url = group_path(membership.group)
+    @url = group_url(membership.group)
     @preferences_note = preferences_note(membership.person)
     mail(:to => membership.person.email,
          :from => "Membership accepted <membership@#{domain}>",
@@ -83,7 +83,7 @@ class PersonMailer < ActionMailer::Base
     invitation = coerce(invitation, Invitation)
     @invitation = invitation
     @server = server
-    @url = edit_invitation_path(invitation)
+    @url = edit_invitation_url(invitation)
     @preferences_note = preferences_note(invitation.person)
     mail(:to => invitation.person.email,
          :from => "Invitation notification <invitation@#{domain}>",
@@ -95,7 +95,7 @@ class PersonMailer < ActionMailer::Base
     invitation = coerce(invitation, Invitation)
     @invitation = invitation
     @server = server
-    @url = members_group_path(invitation.group)
+    @url = members_group_url(invitation.group)
     @preferences_note = preferences_note(invitation.group.owner)
     mail(:to => invitation.group.owner.email,
          :from => "Invitation accepted <invitation@#{domain}>",
@@ -131,7 +131,7 @@ class PersonMailer < ActionMailer::Base
     @server_name = server
     @person = person
 
-    @url = person_path(person)
+    @url = person_url(person)
     mail(:to => recipients_of_registration_notifications,
          :from => "Registration notification <registration@#{domain}>",
          :subject => formatted_subject("New registration")
