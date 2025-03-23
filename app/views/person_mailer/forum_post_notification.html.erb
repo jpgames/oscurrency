@@ -7,5 +7,5 @@
     <p><%= markdown(@forum_post.body) %></p>
   </div>
 </div>
-<%= render :partial => 'notice', :object =>  link_to("#{t('messages.show.reply')} ","http://#{@server}/groups/#{@forum_post.topic.forum.group.id}") + t('person_mailer.message_notification.click_to_view') %>
+<%= render :partial => 'notice', :object =>  link_to("#{t('messages.show.reply')} ","https://#{@server}/groups/#{@forum_post.topic.forum.group.id}") + t('person_mailer.message_notification.click_to_view') %>
 <%= render :partial => 'footer', :object => @preferences_note %>

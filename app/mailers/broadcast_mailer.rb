@@ -35,6 +35,6 @@ private
     def preferences_note(person)
       %(To change your email notification preferences, visit
       
-http://#{server}/people/#{person.to_param}/edit)
+https://#{server}/people/#{person.to_param}/edit)
     end
 end

@@ -180,13 +180,13 @@ class PersonMailer < ActionMailer::Base
   def preferences_note(person)
     %(To change your email notification preferences, visit
       
-http://#{server}/people/#{person.to_param}/edit)
+https://#{server}/people/#{person.to_param}/edit)
   end
 
   def forum_preferences_note(person,group)
     %(To change your forum notification preferences for this group, visit
       
-http://#{server}/groups/#{group.id}#member_preferences/#{Membership.mem(person,group).member_preference.id}/edit)
+https://#{server}/groups/#{group.id}#member_preferences/#{Membership.mem(person,group).member_preference.id}/edit)
   end
 
 end
