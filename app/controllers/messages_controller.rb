@@ -96,7 +96,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to messages_url }
         format.js
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :locals => reply? ? {:content => @message.content} : {} }
         format.js { render :action => "new" }
       end
     end
