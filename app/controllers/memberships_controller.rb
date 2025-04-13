@@ -38,8 +38,8 @@ class MembershipsController < ApplicationController
     @current_membership = Membership.mem(current_person,@membership.group)
     @person = @membership.person
     @account = @person.account(@membership.group)
-    @offers = @person.offers.active
-    @reqs = @person.reqs.all_active
+    @offers = @person.offers.where(group_id: @group.id).active
+    @reqs = @person.reqs.where(group_id: @group.id).active
     respond_to do |format|
       if @group.authorized_to_view_members?(current_person) && (@person.email_verified? || !global_prefs.email_verifications?)
         format.js {render :action => 'reject' if not request.xhr?}
